@@ -12,11 +12,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        orange: 'FF934F',
-        navy: '1F0812',
-        baseBlue: '53599A',
-        lightBlue: '6D9DC5',
-        vLightBlue: 'DFF3E4'
+        orange: '#FF934F',
+        navy: '#1F0812',
+        baseBlue: '#53599A',
+        lightBlue: '#6D9DC5',
+        vLightBlue: '#DFF3E4'
       }
     },
   },

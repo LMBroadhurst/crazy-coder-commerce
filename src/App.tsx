@@ -1,18 +1,13 @@
 import './App.css';
+import HeaderPrimary from './components/HeaderPrimary/HeaderPrimary';
+import PromoProduct from './components/PromoProduct/PromoProduct';
 
 function App() {
   return (
     <>
-    <header className=''>
-      <div>
+      <HeaderPrimary />
 
-        <h1 className=''>Crazy Coder Commerce</h1>
-
-        <span>X</span>
-
-      </div>
-    </header>
-      
+      <PromoProduct />
     </>
   );
 }
