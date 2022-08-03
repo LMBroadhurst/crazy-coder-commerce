@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const HeaderPrimary = (): JSX.Element => {
   return (
@@ -27,7 +28,7 @@ const HeaderPrimary = (): JSX.Element => {
             </ul>
         </nav>
 
-        <span className="hidden md:flex">Sign In</span>
+        <span className="hidden md:flex"><Link to="/signIn">Sign In</Link></span>
 
       </div>
     </header>
