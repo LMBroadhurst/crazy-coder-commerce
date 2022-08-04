@@ -17,7 +17,7 @@ const HeaderPrimary = (): JSX.Element => {
 
         </div>
 
-        <nav className="hidden md:flex">
+        <nav className="hidden md:flex text-2xl">
             <ul className="flex flex-row px-2">
                 <li className="px-2">Desktops</li>
                 <li className="px-2">Laptops</li>
