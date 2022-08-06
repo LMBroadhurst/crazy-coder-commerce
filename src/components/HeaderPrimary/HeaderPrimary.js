@@ -5,13 +5,9 @@ import { signOutUser } from "../../Utils/Firebase";
 
 const HeaderPrimary = () => {
 
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-  console.log(currentUser);
 
-  const signOutHandler = async () => {
-    await signOutUser();
-    setCurrentUser(null);
-  }
+  const { currentUser } = useContext(UserContext);
+
 
   return (
     <header className='bg-navy text-white'>
@@ -41,10 +37,10 @@ const HeaderPrimary = () => {
 
         {
             currentUser ? (
-              <span className="hidden md:flex text-2xl" onClick={signOutHandler}>Sign Out</span>
-              ) :
+              <span className="hidden md:flex text-2xl" onClick={signOutUser}>Sign Out</span>
+              ) : (
               <span className="hidden md:flex text-2xl"><Link to="/auth">Sign In</Link></span>
-        }
+        )}
 
       </div>
     </header>
