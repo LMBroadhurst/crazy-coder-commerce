@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createUserDocumentFromAuth, createAuthUserWithEmailPassword } from "../../Utils/Firebase";
+import ButtonA from "../Button/ButtonA";
 import FormInput from "../FormInput/FormInput";
 
 const defaultFormFields = {
@@ -89,7 +90,12 @@ const Register = () => {
             value={confirmPassword}
           />
 
-          <button type='submit' className="bg-navy text-white px-4 py-2 rounded-lg my-3 text-2xl">Register</button>
+          <ButtonA 
+            type="submit"
+            buttonStyle="google"
+            text="Sign Up"
+          />
+          
         </form>
           
       </div>
