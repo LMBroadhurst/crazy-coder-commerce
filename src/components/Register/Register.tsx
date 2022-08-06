@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { signInWithGooglePopup, createUserDocumentFromAuth, createAuthUserWithEmailPassword } from "../../Utils/Firebase";
+import { createUserDocumentFromAuth, createAuthUserWithEmailPassword } from "../../Utils/Firebase";
 import FormInput from "../FormInput/FormInput";
 
 const defaultFormFields = {
@@ -45,28 +45,52 @@ const Register = () => {
 
   return (
     <>
-      <div className='flex flex-col justify-center items-center my-auto bg-[#EDEDED] p-15 rounded-md'>
-          <h2 className="text-5xl p-4">Register</h2>
-          <form className='flex flex-col justify-center items-start mx-5'  onSubmit={handleSubmit}>
+      <div className='flex flex-col justify-center items-stretch bg-[#EDEDED] rounded-md p-10'>
 
-            <FormInput 
-              placeholder="Username"
-              type="text"
-              required
-              onChange={handleChange}
-              name="displayName"
-              value={displayName}
-            />
+        <h2 className="text-5xl">Don't have an account?</h2>
 
-            <input type="email" placeholder='Email Address' required onChange={handleChange} name="email" value={email}
-                className="my-3 text-3xl text-center" />
+        <span className="text-3xl">Register with Email and Password</span>
 
-            <input type="password" placeholder='Password' required onChange={handleChange} name="password" value={password}
-                className="my-3 text-3xl text-center" />
-            <input type="password" placeholder='Confirm Password' className="my-3 text-3xl text-center" required onChange={handleChange} name="confirmPassword" value={confirmPassword}/>
+        <form className='flex flex-col justify-center items-stretch'  onSubmit={handleSubmit}>
 
-            <button type='submit' className="bg-navy text-white px-4 py-2 rounded-lg my-2 text-2xl">Register</button>
-          </form>
+          <FormInput 
+            placeholder="Username"
+            type="text"
+            required
+            onChange={handleChange}
+            name="displayName"
+            value={displayName}
+          />
+
+          <FormInput
+            placeholder="Email Address"
+            type="email"
+            required
+            onChange={handleChange}
+            name="email"
+            value={email}
+          />
+
+          <FormInput
+            placeholder="Password"
+            type="password"
+            required
+            onChange={handleChange}
+            name="password"
+            value={password}
+          />
+
+          <FormInput
+            placeholder="Confirm Password"
+            type="password"
+            required
+            onChange={handleChange}
+            name="confirmPassword"
+            value={confirmPassword}
+          />
+
+          <button type='submit' className="bg-navy text-white px-4 py-2 rounded-lg my-3 text-2xl">Register</button>
+        </form>
           
       </div>
     </>
