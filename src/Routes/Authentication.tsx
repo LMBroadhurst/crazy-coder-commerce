@@ -1,7 +1,7 @@
 import FooterPrimary from '../components/FooterPrimary/FooterPrimary';
 import HeaderPrimary from '../components/HeaderPrimary/HeaderPrimary';
-import LogIn from '../components/LogIn/LogIn';
 import Register from '../components/Register/Register';
+import LogIn from '../components/LogIn/LogIn';
 
 
 const Authentication = () => {
