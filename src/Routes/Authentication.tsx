@@ -4,12 +4,12 @@ import LogIn from '../components/LogIn/LogIn';
 import Register from '../components/Register/Register';
 
 
-const SignIn = () => {
+const Authentication = () => {
   return (
     <>
         <section className='max-h-screen'>
             <HeaderPrimary />
-            <section className='flex flex-col h-screen w-8/12 mx-auto'>
+            <section className='flex flex-col w-8/12 mx-auto lg:h-screen'>
 
               <div className="flex flex-col justify-around items-start my-auto  lg:flex-row">
 
@@ -26,4 +26,4 @@ const SignIn = () => {
   )
 }
 
-export default SignIn;
+export default Authentication;

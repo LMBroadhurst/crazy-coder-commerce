@@ -1,7 +1,7 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import './App.styles.css';
 import Home from './Routes/Home';
-import SignIn from './Routes/SignIn';
+import Authentication from "./Routes/Authentication";
 
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
         <Routes>
           
           <Route path='/' element={<Home />} />
-          <Route path='/signIn' element={<SignIn />} />
+          <Route path='/auth' element={<Authentication />} />
 
         </Routes>
       </BrowserRouter>

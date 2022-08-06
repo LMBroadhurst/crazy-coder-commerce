@@ -5,7 +5,7 @@ const HeaderPrimary = (): JSX.Element => {
     <header className='bg-navy text-white'>
       <div className='flex flex-row justify-between items-center p-3'>
 
-        <h1 className='text-2xl'>Crazy Coder Commerce</h1>
+        <h1 className='text-2xl'><Link to="/">Crazy Coder Commerce</Link></h1>
 
         <div className="text-2xl flex flex-col justify-center items-end md:hidden">
 
@@ -28,7 +28,7 @@ const HeaderPrimary = (): JSX.Element => {
             </ul>
         </nav>
 
-        <span className="hidden md:flex text-2xl"><Link to="/signIn">Sign In</Link></span>
+        <span className="hidden md:flex text-2xl"><Link to="/auth">Sign In</Link></span>
 
       </div>
     </header>
