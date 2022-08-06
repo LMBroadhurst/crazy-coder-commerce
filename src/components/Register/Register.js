@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { createUserDocumentFromAuth, createAuthUserWithEmailPassword } from "../../Utils/Firebase";
 import ButtonA from "../Button/ButtonA";
 import FormInput from "../FormInput/FormInput";
+import { UserContext } from "../../contexts/User.context";
 
 const defaultFormFields = {
   displayName: '',
@@ -15,13 +16,15 @@ const Register = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword} = formFields;
 
-  const handleChange = (event: any) => {
+  const { setCurrentUser } = useContext(UserContext);
+
+  const handleChange = (event) => {
     const {name, value} = event.target;
 
     setFormFields( {...formFields, [name]: value} );
   };
 
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if ( defaultFormFields.password !== defaultFormFields.confirmPassword) {
@@ -30,9 +33,13 @@ const Register = () => {
     }
 
     try {
-      const {user}: any = await createAuthUserWithEmailPassword(email, password);
+      const {user} = await createAuthUserWithEmailPassword(email, password);
+
+      setCurrentUser(user);
       
       await createUserDocumentFromAuth(user, { displayName });
+
+
       resetFormFields();
     } catch (e) {
       console.log(e);

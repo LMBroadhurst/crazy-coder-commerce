@@ -1,4 +1,4 @@
-import HeaderPrimary from "../components/HeaderPrimary/HeaderPrimary";
+import HeaderPrimary from "../components/HeaderPrimary/HeaderPrimary.js";
 import PromoProduct from "../components/PromoProduct/PromoProduct";
 import CategorySelectors from "../components/CategorySelectors/CategorySelectors";
 import FooterPrimary from "../components/FooterPrimary/FooterPrimary";

@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/User.context";
+import { signOutUser } from "../../Utils/Firebase";
 
-const HeaderPrimary = (): JSX.Element => {
+const HeaderPrimary = () => {
 
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
   console.log(currentUser);
+
+  const signOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
+  }
 
   return (
     <header className='bg-navy text-white'>
@@ -17,9 +23,8 @@ const HeaderPrimary = (): JSX.Element => {
 
           <span>Basket</span>
 
-          <span>Sign In</span>
-
           <span className="">X</span>
+
 
         </div>
 
@@ -34,7 +39,12 @@ const HeaderPrimary = (): JSX.Element => {
             </ul>
         </nav>
 
-        <span className="hidden md:flex text-2xl"><Link to="/auth">Sign In</Link></span>
+        {
+            currentUser ? (
+              <span className="hidden md:flex text-2xl" onClick={signOutHandler}>Sign Out</span>
+              ) :
+              <span className="hidden md:flex text-2xl"><Link to="/auth">Sign In</Link></span>
+        }
 
       </div>
     </header>
