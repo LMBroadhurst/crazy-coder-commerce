@@ -5,7 +5,7 @@ const FormInput = ( {placeholder, ...otherProps} ) => {
     <>
         <input 
             placeholder={placeholder} 
-            className="my-2 py-4 text-3xl text-center rounded-lg" 
+            className="my-2 py-3 text-xl text-center rounded-lg border-2 border-slate-300 md:text-3xl" 
             {...otherProps}
         />
     </>

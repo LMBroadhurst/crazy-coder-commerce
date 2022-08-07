@@ -8,17 +8,21 @@ import LogIn from '../components/LogIn/LogIn.js';
 const Authentication = () => {
   return (
     <>
-        <section className='max-h-screen'>
+        <section className=''>
             <HeaderPrimary />
-            <section className='flex flex-col w-8/12 mx-auto lg:h-screen'>
+            <section className='flex flex-col bg-slate-200'>
 
-              <div className="flex flex-col justify-around items-start my-auto  lg:flex-row">
+                <div className='w-11/12 mx-auto lg:w-8/12'>
 
-                <LogIn />
+                  <div className="flex flex-col mx-auto items-center justify-evenly py-5 lg:items-start lg:pt-16 lg:flex-row lg:justify-around">
 
-                <Register />
+                    <LogIn />
 
-              </div>
+                    <Register />
+
+                  </div>
+                  
+                </div>
 
               </section>
             <FooterPrimary />

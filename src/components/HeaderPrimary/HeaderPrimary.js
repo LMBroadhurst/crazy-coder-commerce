@@ -27,8 +27,8 @@ const HeaderPrimary = () => {
             <span className="px-2">Account</span>
             <span className="px-2">Basket</span>
             {
-              currentUser ? <span onClick={signOutUser} className="px-2">Sign Out</span>
-                : <span><Link to="/auth">Sign In</Link></span>
+              currentUser ? <span onClick={signOutUser} className="pl-2 lg:pr-2">Sign Out</span>
+                : <span className="pl-2 lg:pr-2"><Link to="/auth">Sign In</Link></span>
             }
 
         </section>

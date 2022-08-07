@@ -47,13 +47,13 @@ const Register = () => {
 
   return (
     <>
-      <div className='flex flex-col justify-center items-stretch bg-[#EDEDED] rounded-md p-10'>
+      <div className='flex flex-col justify-center items-stretch bg-white rounded-md m-5 p-5'>
 
-        <h2 className="text-5xl">Don't have an account?</h2>
+        <h2 className="text-3xl">Don't have an account?</h2>
 
-        <span className="text-3xl">Register with Email and Password</span>
+        <span className="text-xl py-2">Register with Email and Password</span>
 
-        <form className='flex flex-col justify-center items-stretch'  onSubmit={handleSubmit}>
+        <form className='flex flex-col justify-center'  onSubmit={handleSubmit}>
 
           <FormInput 
             placeholder="Username"

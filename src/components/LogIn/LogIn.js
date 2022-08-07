@@ -53,10 +53,11 @@ const LogIn = () => {
 
   return (
     <>
-        <div className='flex flex-col justify-center items-stretch my-auto bg-[#EDEDED] p-10 rounded-md'>
+        <div className='flex flex-col justify-center items-stretch bg-white p-5 m-5 rounded-md'>
+
             <h2 className="text-3xl">Already have an account?</h2>
 
-            <h2 className="text-xl">Sign in with email and password</h2>
+            <h2 className="text-xl py-2">Sign in with email and password</h2>
 
             <form className='flex flex-col justify-center' onSubmit={handleSubmit}>
 

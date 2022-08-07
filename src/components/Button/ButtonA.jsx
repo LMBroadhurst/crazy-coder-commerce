@@ -12,7 +12,7 @@ const ButtonA = ( {type, buttonStyle, text, ...otherProps} ) => {
     <>
         <button 
           type={type}
-          className={`${BUTTON_STYLES[buttonStyle]}`}
+          className={`${BUTTON_STYLES[buttonStyle]} p-4 rounded-lg my-2 text-xl md:text-2xl`}
           {...otherProps}
         >
         {text}

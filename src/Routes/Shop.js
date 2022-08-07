@@ -12,7 +12,7 @@ const Shop = () => {
         <>
             <HeaderPrimary />
                 <section className="py-3 bg-slate-300">
-                    <div className="w-10/12 mx-auto grid grid md:grid-cols-2 xl:grid-cols-3">
+                    <div className="w-10/12 mx-auto grid md:grid-cols-2 xl:grid-cols-3">
                         {products.map( product => {
                             return <ProductCard product={product} key={product.id}/>
                         })}
