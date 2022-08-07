@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom";
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { UserContext } from "../../contexts/User.context";
 import { signOutUser } from "../../Utils/Firebase";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import CartIcon from "../CartIcon/CartIcon";
+import CartDropDown from "../Cart-DropDown/CartDropDown";
 
 const HeaderPrimary = () => {
 
+  const [displayStatus, setDisplayStatus] = useState("hidden");
 
   const { currentUser } = useContext(UserContext);
 
@@ -17,15 +20,26 @@ const HeaderPrimary = () => {
     event.preventDefault();
   }
 
+  const toggleBasketDisplayStatus = (event) => {
+    event.preventDefault();
+
+    if (displayStatus === "hidden") {
+      return setDisplayStatus("");
+    }
+
+    return setDisplayStatus("hidden");
+  }
+
 
   return (
+    <>
     <header className='bg-navy text-white'>
 
       <div className="p-1 bg-black text-s md:text-lg md:px-3 md:py-2 lg:px-5">
         <section className="flex flex-row justify-end xl:mx-auto xl:w-3/4" >
 
             <span className="px-2">Account</span>
-            <span className="px-2">Basket</span>
+            <span className="px-2" onClick={toggleBasketDisplayStatus}>Basket {0}</span>
             {
               currentUser ? <span onClick={signOutUser} className="pl-2 lg:pr-2">Sign Out</span>
                 : <span className="pl-2 lg:pr-2"><Link to="/auth">Sign In</Link></span>
@@ -69,6 +83,9 @@ const HeaderPrimary = () => {
       </section>
 
     </header>
+
+    <CartDropDown displayStatus={displayStatus}/>
+    </>
   )
 }
 
