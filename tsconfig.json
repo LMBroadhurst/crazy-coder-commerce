@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-, "FormInput.tsx"  ]
+, "FormInput.tsx", "babel.config.js"  ]
 }
