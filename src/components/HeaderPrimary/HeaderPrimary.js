@@ -5,7 +5,6 @@ import { signOutUser } from "../../Utils/Firebase";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import CartIcon from "../CartIcon/CartIcon";
 import CartDropDown from "../Cart-DropDown/CartDropDown";
 
 const HeaderPrimary = () => {
@@ -38,7 +37,7 @@ const HeaderPrimary = () => {
       <div className="p-1 bg-black text-s md:text-lg md:px-3 md:py-2 lg:px-5">
         <section className="flex flex-row justify-end xl:mx-auto xl:w-3/4" >
 
-            <span className="px-2">Account</span>
+            <span className="px-2"><Link to="/account">Account</Link></span>
             <span className="px-2" onClick={toggleBasketDisplayStatus}>Basket {0}</span>
             {
               currentUser ? <span onClick={signOutUser} className="pl-2 lg:pr-2">Sign Out</span>
