@@ -45,6 +45,19 @@ const Register = () => {
     setFormFields(defaultFormFields);
   }
 
+  const togglePasswordShowing = (event) => {
+    event.preventDefault();
+
+    const checkbox = document.getElementById("register_checkbox");
+    const password = document.getElementById("register-password");
+
+    if ( checkbox.checked ) {
+      return password.type = "text";
+    }
+
+    return password.type = "password";
+  }
+
   return (
     <>
       <div className='flex flex-col justify-center items-stretch bg-white rounded-md m-5 p-5'>
@@ -80,6 +93,7 @@ const Register = () => {
             onChange={handleChange}
             name="password"
             value={password}
+            id="register-password"
           />
 
           <FormInput
@@ -90,6 +104,12 @@ const Register = () => {
             name="confirmPassword"
             value={confirmPassword}
           />
+
+          <div className="flex flex-row flex-start items-center">
+            <input type={"checkbox"} id="register_checkbox" onChange={togglePasswordShowing}/>
+            <span className="pl-4">Show password</span>
+          </div>
+          
 
           <ButtonA 
             type="submit"

@@ -1,15 +1,18 @@
 import { Link } from "react-router-dom";
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../../contexts/User.context";
 import { signOutUser } from "../../Utils/Firebase";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import CartDropDown from "../Cart-DropDown/CartDropDown";
+import Account from "../../Routes/Account";
+import LogIn from "../LogIn/LogIn";
 
 const HeaderPrimary = () => {
 
   const [displayStatus, setDisplayStatus] = useState("hidden");
+  const [accountRedirect, setAccountRedirect] = useState("");
 
   const { currentUser } = useContext(UserContext);
 
@@ -30,6 +33,16 @@ const HeaderPrimary = () => {
   }
 
 
+  useEffect( () => {
+  
+    if (currentUser) {
+      return setAccountRedirect("account");
+    } else {
+      return setAccountRedirect("auth")
+    }
+  }, [currentUser]);
+
+
   return (
     <>
     <header className='bg-navy text-white'>
@@ -37,10 +50,10 @@ const HeaderPrimary = () => {
       <div className="p-1 bg-black text-s md:text-lg md:px-3 md:py-2 lg:px-5">
         <section className="flex flex-row justify-end xl:mx-auto xl:w-3/4" >
 
-            <span className="px-2"><Link to="/account">Account</Link></span>
+            <span className="px-2 cursor-pointer"><Link to={`/${accountRedirect}`}>Account</Link></span>
             <span className="px-2" onClick={toggleBasketDisplayStatus}>Basket {0}</span>
             {
-              currentUser ? <span onClick={signOutUser} className="pl-2 lg:pr-2">Sign Out</span>
+              currentUser ? <span onClick={signOutUser} className="pl-2 lg:pr-2"><Link to="/">Sign Out</Link></span>
                 : <span className="pl-2 lg:pr-2"><Link to="/auth">Sign In</Link></span>
             }
 

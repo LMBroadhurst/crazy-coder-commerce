@@ -2,6 +2,7 @@ import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEm
 import ButtonA from "../Button/ButtonA";
 import FormInput from "../FormInput/FormInput";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const defaultFormFields = {
@@ -14,6 +15,7 @@ const LogIn = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
     const resetFormFields = () => setFormFields(defaultFormFields);
+    const navigate = useNavigate()
         
 
     const handleChange = (event) => {
@@ -29,6 +31,7 @@ const LogIn = () => {
         try {
             await signInAuthUserWithEmailAndPassword(email, password);
             resetFormFields();
+            navigate("/account");
         } catch (error) {
 
             switch(error.code) {
@@ -48,6 +51,7 @@ const LogIn = () => {
 
     const signInWithGoogle = async () => {
         await signInWithGooglePopup();
+        navigate("/account")
     };
 
 
@@ -79,11 +83,13 @@ const LogIn = () => {
                     value={password}
                 />
 
+               
                 <ButtonA
                     type='submit'
                     buttonStyle="google"
                     text="Sign in"
                 />
+                
                 
             </form>
 
