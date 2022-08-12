@@ -51,7 +51,7 @@ const HeaderPrimary = () => {
         <section className="flex flex-row justify-end xl:mx-auto xl:w-3/4" >
 
             <span className="px-2 cursor-pointer"><Link to={`/${accountRedirect}`}>Account</Link></span>
-            <span className="px-2" onClick={toggleBasketDisplayStatus}>Basket {0}</span>
+            <span className="px-2 cursor-pointer" onClick={toggleBasketDisplayStatus}>Basket {0}</span>
             {
               currentUser ? <span onClick={signOutUser} className="pl-2 lg:pr-2"><Link to="/">Sign Out</Link></span>
                 : <span className="pl-2 lg:pr-2"><Link to="/auth">Sign In</Link></span>
