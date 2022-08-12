@@ -12,11 +12,15 @@ module.exports = {
     },
     extend: {
       colors: {
+        black1: '#101216',
         orange: '#FF934F',
         navy: '#1F0812',
         baseBlue: '#53599A',
         lightBlue: '#6D9DC5',
-        vLightBlue: '#DFF3E4'
+        vLightBlue: '#DFF3E4',
+        glowGreen: '#38b58e',
+        grey1: '#cfd3d2',
+        darkGrey: '#424041'
       }
     },
   },

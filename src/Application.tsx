@@ -4,6 +4,7 @@ import Home from './Routes/Home';
 import Authentication from "./Routes/Authentication";
 import Shop from './Routes/Shop.js';
 import Account from './Routes/Account.js';
+import Checkout from './Routes/Checkout';
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
           <Route path='/auth' element={<Authentication />} />
           <Route path='/shop' element={<Shop />} />
           <Route path='/account' element={<Account />} />
+          <Route path='/checkout' element={<Checkout />} />
 
         </Routes>
       </BrowserRouter>

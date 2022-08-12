@@ -3,6 +3,7 @@ import ButtonA from "../Button/ButtonA";
 import FormInput from "../FormInput/FormInput";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import AuthModal from "../AuthModal/AuthModal";
 
 
 const defaultFormFields = {

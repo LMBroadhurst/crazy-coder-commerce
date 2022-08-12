@@ -1,18 +1,20 @@
 import { Link } from "react-router-dom";
 import { useContext, useEffect, useRef, useState } from "react";
+
 import { UserContext } from "../../contexts/User.context";
+
 import { signOutUser } from "../../Utils/Firebase";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 import CartDropDown from "../Cart-DropDown/CartDropDown";
-import Account from "../../Routes/Account";
-import LogIn from "../LogIn/LogIn";
+import { CartContext } from "../../contexts/Cart.context";
 
 const HeaderPrimary = () => {
 
-  const [displayStatus, setDisplayStatus] = useState("hidden");
   const [accountRedirect, setAccountRedirect] = useState("");
+  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
 
   const { currentUser } = useContext(UserContext);
 
@@ -22,15 +24,7 @@ const HeaderPrimary = () => {
     event.preventDefault();
   }
 
-  const toggleBasketDisplayStatus = (event) => {
-    event.preventDefault();
-
-    if (displayStatus === "hidden") {
-      return setDisplayStatus("");
-    }
-
-    return setDisplayStatus("hidden");
-  }
+  const toggleCartOpen = () => setIsCartOpen(!isCartOpen);
 
 
   useEffect( () => {
@@ -45,16 +39,16 @@ const HeaderPrimary = () => {
 
   return (
     <>
-    <header className='bg-navy text-white'>
+    <header className='bg-black text-white border-b-4 border-glowGreen'>
 
-      <div className="p-1 bg-black text-s md:text-lg md:px-3 md:py-2 lg:px-5">
-        <section className="flex flex-row justify-end xl:mx-auto xl:w-3/4" >
+      <div className="p-1 bg-black1 text-s md:text-lg md:px-3 md:py-2 lg:px-5">
+        <section className="flex flex-row justify-end text-grey1 xl:mx-auto xl:w-3/4" >
 
-            <span className="px-2 cursor-pointer"><Link to={`/${accountRedirect}`}>Account</Link></span>
-            <span className="px-2 cursor-pointer" onClick={toggleBasketDisplayStatus}>Basket {0}</span>
+            <span className="px-2 cursor-pointer hover:text-glowGreen"><Link to={`/${accountRedirect}`}>Account</Link></span>
+            <span className="px-2 cursor-pointer hover:text-glowGreen" onClick={toggleCartOpen}>Basket { cartCount ? cartCount : ""}</span>
             {
-              currentUser ? <span onClick={signOutUser} className="pl-2 lg:pr-2"><Link to="/">Sign Out</Link></span>
-                : <span className="pl-2 lg:pr-2"><Link to="/auth">Sign In</Link></span>
+              currentUser ? <span onClick={signOutUser} className="pl-2 lg:pr-2 hover:text-glowGreen"><Link to="/">Sign Out</Link></span>
+                : <span className="pl-2 lg:pr-2 hover:text-glowGreen"><Link to="/auth">Sign In</Link></span>
             }
 
         </section>
@@ -63,18 +57,18 @@ const HeaderPrimary = () => {
       <div className="flex flex-col mx-auto xl:w-3/4">
         <div className='flex flex-row justify-between items-center p-3 lg:py-7'>
 
-          <h1 className='text-xl sm:text-3xl sm:w-auto lg:w-auto'><Link to="/">Crazy Coder Commerce</Link></h1>
+          <h1 className='text-xl cursor-pointer hover:text-glowGreen sm:text-3xl sm:w-auto lg:w-auto'><Link to="/">Crazy Coder Commerce</Link></h1>
           
           <span className="text-2xl sm:text-4xl lg:hidden" onClick={toggleDdMenu} ><FontAwesomeIcon icon={faBars} /></span>
 
 
           <nav className="hidden text-2xl lg:flex">
               <ul className="flex flex-row px-2">
-                  <li className="px-2"><Link to="/shop">Desktops</Link></li>
-                  <li className="px-2">Laptops</li>
-                  <li className="px-2">Accessories</li>
-                  <li className="px-2">Courses</li>
-                  <li className="px-2">Contact Us</li>
+                  <li className="px-2 cursor-pointer hover:text-glowGreen"><Link to="/shop">Desktops</Link></li>
+                  <li className="px-2 cursor-pointer hover:text-glowGreen">Laptops</li>
+                  <li className="px-2 cursor-pointer hover:text-glowGreen">Accessories</li>
+                  <li className="px-2 cursor-pointer hover:text-glowGreen">Courses</li>
+                  <li className="px-2 cursor-pointer hover:text-glowGreen">Contact Us</li>
               </ul>
           </nav>
 
@@ -96,7 +90,10 @@ const HeaderPrimary = () => {
 
     </header>
 
-    <CartDropDown displayStatus={displayStatus}/>
+    <section className="flex justify-end mx-auto md:px-3 lg:px-5 xl:w-3/4">
+      {isCartOpen && <CartDropDown />}
+    </section>
+    
     </>
   )
 }

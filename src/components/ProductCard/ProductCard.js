@@ -1,8 +1,13 @@
+import { CartContext } from '../../contexts/Cart.context';
 import ButtonA from '../Button/ButtonA';
+import { useContext } from 'react';
 
 const ProductCard = ( {product} ) => {
 
   const { name, price, imageUrl, point1, point2, point3 } = product;
+  const { addItemToCart } = useContext(CartContext);
+
+  const addProductToCart = () => addItemToCart(product);
 
   return (
     <>
@@ -34,6 +39,7 @@ const ProductCard = ( {product} ) => {
             type='button'
             buttonStyle="google"
             text="Add to basket" 
+            onClick={addProductToCart}
           />
 
         </div>
