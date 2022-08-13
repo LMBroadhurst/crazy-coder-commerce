@@ -80,7 +80,7 @@ const HeaderPrimary = () => {
         <nav>
           <ul className="flex flex-col items-center">
             <li className="py-1"><Link to="/shop">Desktops</Link></li>
-            <li className="py-1">Laptops</li>
+            <li className="py-1"><Link to="/laptops">Laptops</Link></li>
             <li className="py-1">Accessories</li>
             <li className="py-1">Courses</li>
             <li className="py-1">Contact Us</li>
