@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import App from "./Application";
 import { UserProvider } from "./contexts/User.context";
-import { ProductsProvider } from "./contexts/Products.context";
+import { CategoriesProvider } from "./contexts/Categories.context";
 import { CartContext, CartProvider } from './contexts/Cart.context';
 
 
@@ -15,12 +15,12 @@ root.render(
     
     <UserProvider>
 
-      <ProductsProvider>
+      <CategoriesProvider>
 
         <CartProvider>
           <App />
         </CartProvider>
-      </ProductsProvider>
+      </CategoriesProvider>
 
     </UserProvider>
 
