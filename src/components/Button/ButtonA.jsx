@@ -1,8 +1,7 @@
-import "./ButtonA.css";
 
 const BUTTON_STYLES = {
-  default: "default-btn-styling",
-  google: "google-sign-in",
+  default: "bg-black text-white",
+  google: "bg-blue-600 text-white hover:bg-blue-300 hover:text-blue-900",
   inverted: "inverted"
 }
 

@@ -30,10 +30,13 @@ const HeaderPrimary = () => {
   useEffect( () => {
   
     if (currentUser) {
+      console.log(currentUser);
       return setAccountRedirect("account");
     } else {
+      console.log(currentUser);
       return setAccountRedirect("auth")
     }
+
   }, [currentUser]);
 
 

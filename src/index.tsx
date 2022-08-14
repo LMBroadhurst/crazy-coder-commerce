@@ -20,6 +20,7 @@ root.render(
         <CartProvider>
           <App />
         </CartProvider>
+        
       </CategoriesProvider>
 
     </UserProvider>

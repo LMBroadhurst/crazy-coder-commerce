@@ -1,6 +1,5 @@
-import React from 'react'
 
-const CartItem = ( {cartItem}) => {
+const CartItem = ( {cartItem} ) => {
 
     const {name, quantity, imageUrl, price} = cartItem;
 
@@ -17,4 +16,4 @@ const CartItem = ( {cartItem}) => {
   )
 }
 
-export default CartItem
+export default CartItem;

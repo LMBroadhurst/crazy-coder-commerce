@@ -13,13 +13,9 @@ const CategorySelectors = () => {
 
             <CategoryTile categoryName="Laptops" imageFile={Laptop} />
 
-            <CategoryTile categoryName="Keyboards & Mice" imageFile={KeyboardMouse} />
+            <CategoryTile categoryName="Accessories" imageFile={KeyboardMouse} />
 
-            <CategoryTile categoryName="Streaming" imageFile={Microphone}/>
-
-            {/* <CategoryTile categoryName="x" />
-
-            <CategoryTile categoryName="x" /> */}
+            <CategoryTile categoryName="Courses" imageFile={Microphone}/>
 
         </section>
     </>
