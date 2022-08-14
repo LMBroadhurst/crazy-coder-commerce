@@ -5,3 +5,8 @@
 body {
     font-family: 'Red Hat Text', sans-serif;
 }
+
+.ggTextHoverState:hover {
+    cursor: pointer;
+    color: #38b58e;
+}
