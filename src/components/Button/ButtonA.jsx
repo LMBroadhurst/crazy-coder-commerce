@@ -1,8 +1,9 @@
 
 const BUTTON_STYLES = {
-  default: "bg-black text-white",
-  google: "bg-blue-600 text-white hover:bg-blue-300 hover:text-blue-900",
-  inverted: "inverted"
+  default: "bg-black text-white p-4",
+  google: "bg-blue-600 text-white p-4 hover:bg-blue-300 hover:text-blue-900",
+  inverted: "inverted",
+  warning: "bg-red-600 text-white px-4 py-2 border-4 border-red-600 hover:bg-white hover:text-red-900"
 }
 
 
@@ -11,7 +12,7 @@ const ButtonA = ( {type, buttonStyle, text, ...otherProps} ) => {
     <>
         <button 
           type={type}
-          className={`${BUTTON_STYLES[buttonStyle]} p-4 rounded-lg my-2 text-xl md:text-2xl`}
+          className={`${BUTTON_STYLES[buttonStyle]} rounded-lg my-2 text-xl md:text-2xl`}
           {...otherProps}
         >
         {text}

@@ -2,8 +2,8 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import './App.styles.css';
 import Home from './Routes/Home';
 import Authentication from "./Routes/Authentication";
-import Shop from './Routes/Shop.js';
-import Account from './Routes/Account.js';
+import Shop from './Routes/Shop.jsx';
+import Account from './Routes/Account.jsx';
 import Checkout from './Routes/Checkout';
 
 

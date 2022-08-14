@@ -1,4 +1,6 @@
 import React, { useContext } from 'react'
+import FooterPrimary from '../components/FooterPrimary/FooterPrimary';
+import HeaderPrimary from '../components/HeaderPrimary/HeaderPrimary';
 import { CartContext } from '../contexts/Cart.context';
 
 const Checkout = () => {
@@ -8,6 +10,8 @@ const Checkout = () => {
 
   return (
     <>
+        <HeaderPrimary />
+
         <h2>Checkout</h2>
 
         <section>
@@ -26,6 +30,7 @@ const Checkout = () => {
             }
             <span>Total: £{cartTotal}</span>
         </section>
+        <FooterPrimary />
     </>
   )
 }

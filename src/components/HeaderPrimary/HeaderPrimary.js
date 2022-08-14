@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useRef, useState } from "react";
 
 import { UserContext } from "../../contexts/User.context";
@@ -14,17 +14,26 @@ import { CartContext } from "../../contexts/Cart.context";
 const HeaderPrimary = () => {
 
   const [accountRedirect, setAccountRedirect] = useState("");
-  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
 
+  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
   const { currentUser } = useContext(UserContext);
 
   const ddMenu = useRef();
+
+  const navigate = useNavigate()
 
   const toggleDdMenu = (event) => {
     event.preventDefault();
   }
 
-  const toggleCartOpen = () => setIsCartOpen(!isCartOpen);
+  const toggleCartOpen = () => {
+
+    if (currentUser) {
+      return setIsCartOpen(!isCartOpen);
+    }
+
+    return navigate("/auth");
+  }
 
 
   useEffect( () => {

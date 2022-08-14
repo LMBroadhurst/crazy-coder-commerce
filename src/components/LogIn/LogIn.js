@@ -2,7 +2,7 @@ import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEm
 import ButtonA from "../Button/ButtonA";
 import FormInput from "../FormInput/FormInput";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AuthModal from "../AuthModal/AuthModal";
 
 
@@ -16,15 +16,23 @@ const LogIn = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
     const resetFormFields = () => setFormFields(defaultFormFields);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [modalDisplay, setModalDisplay] = useState("hidden");
+
+    const toggleModalDisplay = () => {
+        if (modalDisplay === "hidden") {
+            return setModalDisplay("");
+        }
         
+        return setModalDisplay("hidden");
+    }
+    
 
     const handleChange = (event) => {
         const { name, value } = event.target;
 
         setFormFields( {...formFields, [name]: value} );
     };
-
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -37,7 +45,7 @@ const LogIn = () => {
 
             switch(error.code) {
                 case "auth/wrong-password":
-                    alert("Incorrect Password");
+                    toggleModalDisplay()
                     break;     
                 
                 case "auth/user-not-found":
@@ -100,6 +108,10 @@ const LogIn = () => {
                 text="Sign in with Google"
                 onClick={signInWithGoogle}
             />
+        </div>
+
+        <div className={`${modalDisplay}`}>
+            <AuthModal buttonFunctionality={toggleModalDisplay}/>
         </div>
     </>
   )

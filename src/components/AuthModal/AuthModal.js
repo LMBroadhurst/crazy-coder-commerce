@@ -1,6 +1,6 @@
 import ButtonA from "../Button/ButtonA"
 
-const AuthModal = () => {
+const AuthModal = ( {buttonFunctionality} ) => {
 
   return (
     <>
@@ -10,7 +10,7 @@ const AuthModal = () => {
             <section class="fixed z-10 inset-0 overflow-y-auto">
                 <div class="flex items-end sm:items-center justify-center min-h-full p-4 text-center sm:p-0">
 
-                    <section class="relative bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
+                    <section class="relative flex flex-col items-center bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full">
 
                         <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
 
@@ -24,10 +24,10 @@ const AuthModal = () => {
 
                                 <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
 
-                                    <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Deactivate account</h3>
+                                    <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">Log in failed</h3>
 
                                     <div class="mt-2">
-                                        <p class="text-sm text-gray-500">Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.</p>
+                                        <p class="text-sm text-gray-500">You have entered an incorrect email/password combination. Please try again or contact admin via lewis1broadhurst@gmail.com.</p>
                                     </div>
 
                                 </div>
@@ -35,7 +35,7 @@ const AuthModal = () => {
 
                         </div>
 
-                        <ButtonA />
+                        <ButtonA text={"Close"} type="button" buttonStyle={"warning"} onClick={buttonFunctionality}/>
 
                     </section>
                 </div>
