@@ -20,8 +20,6 @@ export const UserProvider = ({ children }) => {
       setCurrentUser(user);
     });
 
-    console.log(1);
-
     return unsubscribe;
   }, []);
   
