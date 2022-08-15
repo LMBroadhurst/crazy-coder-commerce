@@ -11,13 +11,13 @@ const ProductCard = ( {product} ) => {
 
   return (
     <>
-      <section className='bg-gray-200 my-5 flex flex-col justify-between items-stretch rounded-lg md:m-5'>
+      <section className='bg-slate-300 my-5 flex flex-col justify-between items-stretch rounded-lg md:m-5'>
 
         <div className='bg-black text-white text-4xl text-center py-2 rounded-t-lg'>
           <h2>{name}</h2>
         </div>
 
-        <div className='px-5 flex flex-col items-stretch'>
+        <div className='px-5 flex flex-col items-stretch bg-slate-700 text-white py-4 pb-6 rounded-b-md'>
 
           <div className='w-11/12 my-3 mx-auto self-center flex justify-center'>
             <img src={imageUrl} alt={name} className=""/>
@@ -37,7 +37,7 @@ const ProductCard = ( {product} ) => {
 
           <ButtonA 
             type='button'
-            buttonStyle="google"
+            buttonStyle="glowGreen"
             text="Add to basket" 
             onClick={addProductToCart}
           />
