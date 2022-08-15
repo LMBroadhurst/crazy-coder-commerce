@@ -46,27 +46,29 @@ const Register = () => {
   }
 
   const togglePasswordShowing = (event) => {
-    event.preventDefault();
 
     const checkbox = document.getElementById("register_checkbox");
     const password = document.getElementById("register-password");
+    const passwordConf = document.getElementById("register-passwordConf");
 
     if ( checkbox.checked ) {
-      return password.type = "text";
+      password.type = "text";
+      passwordConf.type = "text";
+    } else {
+      password.type = "password";
+      passwordConf.type = "password";
     }
-
-    return password.type = "password";
   }
 
   return (
     <>
-      <div className='flex flex-col justify-center items-stretch bg-white rounded-md m-5 p-5'>
+      <div className='flex flex-col justify-center items-stretch bg-slate-700 text-white rounded-md m-5 p-5'>
 
-        <h2 className="text-3xl">Don't have an account?</h2>
+        <h2 className="text-3xl pb-2">Don't have an account?</h2>
 
-        <span className="text-xl py-2">Register with Email and Password</span>
+        <span className="text-xl py-2 pb-4">Register with Email and Password</span>
 
-        <form className='flex flex-col justify-center'  onSubmit={handleSubmit}>
+        <form className='flex flex-col justify-center text-black'  onSubmit={handleSubmit}>
 
           <FormInput 
             placeholder="Username"
@@ -103,17 +105,18 @@ const Register = () => {
             onChange={handleChange}
             name="confirmPassword"
             value={confirmPassword}
+            id={"register-passwordConf"}
           />
 
-          <div className="flex flex-row flex-start items-center">
-            <input type={"checkbox"} id="register_checkbox" onChange={togglePasswordShowing}/>
+          <div className="flex flex-row flex-start items-center self-center py-2 text-white">
+            <input type={"checkbox"} id="register_checkbox" onChange={togglePasswordShowing} />
             <span className="pl-4">Show password</span>
           </div>
           
 
           <ButtonA 
             type="submit"
-            buttonStyle="google"
+            buttonStyle="glowGreen"
             text="Sign Up"
           />
           

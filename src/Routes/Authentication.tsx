@@ -13,9 +13,9 @@ const Authentication = () => {
             <HeaderPrimary />
             <section className='flex flex-col bg-slate-200'>
 
-                <div className='w-11/12 mx-auto lg:w-8/12'>
+                <div className='w-11/12 mx-auto lg:w-6/12'>
 
-                  <div className="flex flex-col mx-auto items-center justify-evenly py-5 lg:items-start lg:pt-16 lg:flex-row lg:justify-around">
+                  <div className="bg-slate-700 flex flex-col mx-auto items-center justify-evenly my-10 rounded-xl lg:items-start lg:flex-row lg:justify-around">
 
                     <LogIn />
 
