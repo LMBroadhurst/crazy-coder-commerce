@@ -10,11 +10,17 @@ const Home = () => {
     <>
         <HeaderPrimary />
 
-        <section className="mx-auto xl:w-3/4">
+        <section className="bg-slate-300">
 
-          <PromoProduct />
+          <section className="pt-8 mx-auto xl:w-3/4">
 
-          <CategorySelectors />
+            <PromoProduct />
+
+            <div className="py-20">
+              <CategorySelectors />
+            </div>
+
+          </section>
 
         </section>
 

@@ -7,7 +7,7 @@ import Microphone from "../../Assets/micCatTile1.png";
 const CategorySelectors = () => {
   return (
     <>
-        <section className='flex flex-wrap justify-around content-center items-center w-11/12 mx-auto my-10'>
+        <section className='flex flex-wrap justify-around content-center items-center w-11/12 mx-auto'>
 
             <CategoryTile categoryName="Desktops" imageFile={Desktop}/>
 

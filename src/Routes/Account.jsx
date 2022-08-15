@@ -25,16 +25,16 @@ const Account = () => {
     return (
         <>
             <HeaderPrimary />
-                <section className="flex flex-row justify-around">
+                <section className="flex flex-row justify-evenly items-start py-20 bg-slate-300">
 
-                    <section className="flex flex-col w-1/3">
+                    <section className="flex flex-col w-1/4 bg-slate-700 text-white px-10 py-5 rounded-lg">
 
                         <div className="text-2xl flex flex-col">
-                            <h2 className="text-4xl">Your account</h2>
+                            <h2 className="text-4xl self-stretch text-center pb-2 border-b-4">Your account</h2>
 
-                            <span>Name: {currentUser.displayName}</span>
-                            <span>Username: </span>
-                            <span>email: {currentUser.email} </span>
+                            <span className="pt-6 pb-2">Name: {currentUser.displayName}</span>
+                            <span className="py-2">Username: </span>
+                            <span className="py-2 pb-4">email: {currentUser.email} </span>
                         </div>
 
                         <ButtonA text={"Edit details"} type='button' buttonStyle={'default'} onClick={toggleEditDetailsMenu}/>
@@ -43,13 +43,14 @@ const Account = () => {
                             <FormInput placeholder={"Name"} />
                             <FormInput placeholder={"Email"} />
                             <FormInput placeholder={"Username"} />
+                            <ButtonA text={"Confirm details change"} type="button" buttonStyle={"glowGreen"} />
                         </section>
 
                         <ButtonA text={"Change password?"} type='button' buttonStyle={'default'} />
                     </section>
 
-                    <section className="flex flex-col w-1/3">
-                        <h3>Your last order</h3>
+                    <section className="flex flex-col w-1/3 bg-slate-700 text-white px-10 py-5 rounded-lg">
+                        <h2 className="text-4xl self-stretch text-center pb-2 border-b-4">Previous Orders</h2>
 
                         <div>
 

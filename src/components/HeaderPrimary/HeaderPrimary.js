@@ -53,7 +53,7 @@ const HeaderPrimary = () => {
     <>
     <header className='bg-black text-white border-b-4 border-glowGreen'>
 
-      <div className="p-1 bg-black1 text-s md:text-lg md:px-3 md:py-2 lg:px-5">
+      <div className="p-1 bg-black1 text-s md:text-lg md:px-3 md:pt-2 lg:px-5">
         <section className="flex flex-row justify-end text-grey1 xl:mx-auto xl:w-3/4" >
 
             <span className="px-2 cursor-pointer hover:text-glowGreen"><Link to={`/${accountRedirect}`}>Account</Link></span>
