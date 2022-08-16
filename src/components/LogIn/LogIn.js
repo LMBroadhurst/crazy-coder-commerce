@@ -52,6 +52,7 @@ const LogIn = () => {
                 
                 case "auth/user-not-found":
                     alert("Email not valid");
+                    toggleModalDisplay()
                     break;
                 
                 default: console.log(error);
