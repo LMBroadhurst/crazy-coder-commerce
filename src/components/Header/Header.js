@@ -11,12 +11,17 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import CartDropDown from "../Cart-DropDown/CartDropDown";
 import { CartContext } from "../../contexts/Cart.context";
 
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/userSelector";
+
 const HeaderPrimary = () => {
+
+  const currentUser = useSelector(selectCurrentUser);
 
   const [accountRedirect, setAccountRedirect] = useState("");
 
   const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
-  const { currentUser } = useContext(UserContext);
+  // const { currentUser } = useContext(UserContext);
 
   const ddMenu = useRef();
 

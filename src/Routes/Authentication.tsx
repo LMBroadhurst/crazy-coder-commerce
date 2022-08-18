@@ -1,5 +1,5 @@
-import FooterPrimary from '../components/FooterPrimary/FooterPrimary';
-import HeaderPrimary from '../components/HeaderPrimary/HeaderPrimary.js';
+import FooterPrimary from '../components/Footer/Footer';
+import HeaderPrimary from '../components/Header/Header.js';
 import Register from '../components/Register/Register.js';
 import LogIn from '../components/LogIn/LogIn.js';
 import AuthModal from '../components/AuthModal/AuthModal';

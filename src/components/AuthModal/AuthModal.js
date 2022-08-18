@@ -4,7 +4,7 @@ const AuthModal = ( {buttonFunctionality} ) => {
 
   return (
     <>
-        <section class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        {/* <section class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
             <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
             <section class="fixed z-10 inset-0 overflow-y-auto">
@@ -41,7 +41,7 @@ const AuthModal = ( {buttonFunctionality} ) => {
                 </div>
 
             </section>
-        </section>
+        </section> */}
     </>
   )
 }

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import FooterPrimary from '../components/FooterPrimary/FooterPrimary';
-import HeaderPrimary from '../components/HeaderPrimary/HeaderPrimary';
+import FooterPrimary from '../components/Footer/Footer';
+import HeaderPrimary from '../components/Header/Header';
 import { CartContext } from '../contexts/Cart.context';
 
 const Checkout = () => {

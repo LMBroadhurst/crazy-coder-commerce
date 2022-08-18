@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import App from "./Application";
-import { UserProvider } from "./contexts/User.context";
 import { CategoriesProvider } from "./contexts/Categories.context";
-import { CartContext, CartProvider } from './contexts/Cart.context';
+import { CartProvider } from './contexts/Cart.context';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 
 const root = ReactDOM.createRoot(
@@ -12,19 +13,16 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    
-    <UserProvider>
+    <Provider store={store}>
 
-      <CategoriesProvider>
+      
 
         <CartProvider>
           <App />
         </CartProvider>
         
-      </CategoriesProvider>
-
-    </UserProvider>
-
+      
+    </Provider>
   </React.StrictMode>
 );
 

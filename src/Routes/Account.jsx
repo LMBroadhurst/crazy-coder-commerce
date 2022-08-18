@@ -1,7 +1,7 @@
 import ButtonA from "../components/Button/ButtonA";
-import FooterPrimary from "../components/FooterPrimary/FooterPrimary";
+import FooterPrimary from "../components/Footer/Footer";
 import FormInput from "../components/FormInput/FormInput";
-import HeaderPrimary from "../components/HeaderPrimary/HeaderPrimary";
+import HeaderPrimary from "../components/Header/Header";
 import { useState, useContext } from "react";
 import { UserContext } from "../contexts/User.context";
 
@@ -9,7 +9,6 @@ import { UserContext } from "../contexts/User.context";
 const Account = () => {
 
     const [toggleEditDetails, setToggleEditDetails] = useState("hidden");
-    const { currentUser } = useContext(UserContext);
 
     const toggleEditDetailsMenu = (event) => {
 
@@ -32,9 +31,9 @@ const Account = () => {
                         <div className="text-2xl flex flex-col">
                             <h2 className="text-4xl self-stretch text-center pb-2 border-b-4">Your account</h2>
 
-                            <span className="pt-6 pb-2">Name: {currentUser.displayName}</span>
+                            {/* <span className="pt-6 pb-2">Name: {currentUser.displayName}</span> */}
                             <span className="py-2">Username: </span>
-                            <span className="py-2 pb-4">email: {currentUser.email} </span>
+                            {/* <span className="py-2 pb-4">email: {currentUser.email} </span> */}
                         </div>
 
                         <ButtonA text={"Edit details"} type='button' buttonStyle={'default'} onClick={toggleEditDetailsMenu}/>
