@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { createUserDocumentFromAuth, onAuthStateChangedListener, getCategoriesAndDocuments } from "./Utils/Firebase";
 import { setCurrentUser } from './store/user/userAction';
 import { useDispatch } from 'react-redux';
-import { setCategoriesMap } from './store/categories/categoryAction';
+import { setCategories } from './store/categories/categoryAction';
 
 
 const App = () => {
@@ -32,13 +32,11 @@ const App = () => {
 
   useEffect( () => {
     const getCategoriesMap = async () => {
-        const categoryMap = await getCategoriesAndDocuments();
-        dispatch(setCategoriesMap(categoryMap));
+        const categoriesArray = await getCategoriesAndDocuments();
+        dispatch(setCategories(categoriesArray));
     }
 
     getCategoriesMap();
-
-    console.log(2);
 });
 
   return (

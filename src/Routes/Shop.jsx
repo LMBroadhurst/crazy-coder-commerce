@@ -1,14 +1,12 @@
-import { CategoriesContext } from "../contexts/Categories.context";
-import { useContext } from "react";
 import HeaderPrimary from "../components/Header/Header";
 import ProductCard from "../components/ProductCard/ProductCard";
 import FooterPrimary from "../components/Footer/Footer";
 import { useSelector } from "react-redux";
-import { selectCategoriesMap } from "../store/categories/categorySelector";
+import { selectCategories } from "../store/categories/categorySelector";
 
 const Shop = () => {
 
-    const categoriesMap = useSelector(selectCategoriesMap);
+    const categoriesMap = useSelector(selectCategories);
 
     return (
         <>
