@@ -14,7 +14,7 @@ const Shop = () => {
             <HeaderPrimary />
             <section className="py-3 bg-slate-300">
 
-                <div className="w-10/12 mx-auto grid md:grid-cols-2 xl:grid-cols-3">
+                <div className="w-10/12 mx-auto grid md:grid-cols-2 xl:grid-cols-3 y">
                 {
                     Object.keys(categoriesMap).map( title => {
                         return (
