@@ -22,15 +22,27 @@ const CheckoutCard = ( {cartItem} ) => {
 
   return (
     <>
-        <div>
-            <span>{name}</span>
-            <span>{imageUrl}</span>
-            <span>{price}</span>
-            <span>{quantity}</span>
-            <span className='text-3xl' onClick={() => addItemHandler(cartItem)}>+</span>
-            <span className='text-3xl' onClick={() => removeItemHandler(cartItem)}>-</span>
+        <section className='flex flex-row justify-between items-center w-1/3'>
+
+            <div className='w-40'>
+                <img src={imageUrl} alt={"product preview"}/>
+            </div>
+
+            <div className='flex flex-col'>
+                <span>{name}</span>
+                <span>£{price}</span>
+
+                <div className='flex flex-row items-center'>
+                    <span className='text-3xl pr-2' onClick={() => addItemHandler(cartItem)}>+</span>
+                    <span className='px-2'>{quantity}</span>
+                    <span className='text-3xl pl-2' onClick={() => removeItemHandler(cartItem)}>-</span>
+                </div>
+            </div>
+
+            
+            
             <span className='text-3xl' onClick={() => clearItemHandler(cartItem)}>X</span>
-        </div>
+        </section>
     </>
   )
 }

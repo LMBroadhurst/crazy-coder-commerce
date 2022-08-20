@@ -33,7 +33,6 @@ const HeaderPrimary = () => {
       dispatch(setIsCartOpen(!isCartOpen));
     }
 
-    return navigate("/auth");
   }
 
 

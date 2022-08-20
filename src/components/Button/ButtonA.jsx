@@ -4,7 +4,7 @@ const BUTTON_STYLES = {
   google: "bg-blue-600 text-white p-4 hover:bg-blue-300 hover:text-blue-900",
   glowGreen: "bg-glowGreen text-white p-4 hover:bg-green-600 hover:text-black",
   warning: "bg-red-600 text-white px-4 py-2 border-4 border-red-600 hover:bg-white hover:text-red-900",
-  promoCard: "bg-glowGreen w-3/4 mt-8 mx-auto text-white p-4 self-stretch hover:bg-green-600 hover:text-black"
+  promoCard: "bg-glowGreen w-3/4 mt-8 text-white p-4 self-stretch hover:bg-green-600 hover:text-black"
 }
 
 
