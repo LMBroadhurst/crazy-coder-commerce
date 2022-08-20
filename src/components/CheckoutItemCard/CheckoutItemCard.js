@@ -23,6 +23,10 @@ const CheckoutCard = ( {cartItem} ) => {
   return (
     <>
         <div>
+            <span>{name}</span>
+            <span>{imageUrl}</span>
+            <span>{price}</span>
+            <span>{quantity}</span>
             <span className='text-3xl' onClick={() => addItemHandler(cartItem)}>+</span>
             <span className='text-3xl' onClick={() => removeItemHandler(cartItem)}>-</span>
             <span className='text-3xl' onClick={() => clearItemHandler(cartItem)}>X</span>
