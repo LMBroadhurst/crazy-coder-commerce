@@ -1,30 +1,26 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useContext, useEffect, useRef, useState } from "react";
-
-import { UserContext } from "../../contexts/User.context";
-
+import { useEffect, useRef, useState } from "react";
 import { signOutUser } from "../../Utils/Firebase";
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-
 import CartDropDown from "../Cart-DropDown/CartDropDown";
-import { CartContext } from "../../contexts/Cart.context";
-
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectCurrentUser } from "../../store/user/userSelector";
+import { selectCartCount, selectIsCartOpen } from "../../store/cart/cartSelector";
+import { setIsCartOpen } from "../../store/cart/cartAction";
+
 
 const HeaderPrimary = () => {
 
   const currentUser = useSelector(selectCurrentUser);
+  
+  const isCartOpen = useSelector(selectIsCartOpen);
+  const cartCount = useSelector(selectCartCount);
+  const dispatch = useDispatch();
 
   const [accountRedirect, setAccountRedirect] = useState("");
 
-  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
-  // const { currentUser } = useContext(UserContext);
-
   const ddMenu = useRef();
-
   const navigate = useNavigate()
 
   const toggleDdMenu = (event) => {
@@ -34,7 +30,7 @@ const HeaderPrimary = () => {
   const toggleCartOpen = () => {
 
     if (currentUser) {
-      return setIsCartOpen(!isCartOpen);
+      dispatch(setIsCartOpen(!isCartOpen));
     }
 
     return navigate("/auth");

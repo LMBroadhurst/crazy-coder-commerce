@@ -2,11 +2,11 @@ import HeaderPrimary from "../components/Header/Header";
 import ProductCard from "../components/ProductCard/ProductCard";
 import FooterPrimary from "../components/Footer/Footer";
 import { useSelector } from "react-redux";
-import { selectCategories } from "../store/categories/categorySelector";
+import { selectCategoriesMap } from "../store/categories/categorySelector";
 
 const Shop = () => {
 
-    const categoriesMap = useSelector(selectCategories);
+    const categoriesMap = useSelector(selectCategoriesMap);
 
     return (
         <>
