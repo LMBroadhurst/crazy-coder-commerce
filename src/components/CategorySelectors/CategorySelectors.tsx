@@ -1,23 +1,29 @@
 import CategoryTile from './CategoryTile/CategoryTile';
 import Desktop from "../../Assets/desktopCatTile1.png";
 import Laptop from "../../Assets/laptopCatTile1.png";
-import KeyboardMouse from "../../Assets/keyboardMouseCatTile1.png";
 import Microphone from "../../Assets/micCatTile1.png";
+import Course from "../../Assets/course.png";
 
 const CategorySelectors = () => {
   return (
     <>
-        <section className='flex flex-wrap justify-around content-center items-center w-11/12 mx-auto'>
+      <section>
 
-            <CategoryTile categoryName="Desktops" imageFile={Desktop}/>
+        <h3 className='text-center pb-16 text-4xl'>Shop by category</h3>
 
-            <CategoryTile categoryName="Laptops" imageFile={Laptop} />
+        <section className='flex flex-wrap justify-around content-center items-center w-7/12 mx-auto'>
 
-            <CategoryTile categoryName="Accessories" imageFile={KeyboardMouse} />
+          <CategoryTile categoryName="Desktops" imageFile={Desktop}/>
 
-            <CategoryTile categoryName="Courses" imageFile={Microphone}/>
+          <CategoryTile categoryName="Laptops" imageFile={Laptop} />
+
+          <CategoryTile categoryName="Accessories" imageFile={Microphone} />
+
+          <CategoryTile categoryName="Courses" imageFile={Course}/>
 
         </section>
+
+      </section>
     </>
   )
 }

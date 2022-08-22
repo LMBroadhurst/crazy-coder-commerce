@@ -20,7 +20,11 @@ module.exports = {
         vLightBlue: '#DFF3E4',
         glowGreen: '#38b58e',
         grey1: '#cfd3d2',
-        darkGrey: '#424041'
+        darkGrey: '#424041',
+        microRed: '#f01830',
+        ultraBlue: '#1818d8',
+        myogaPurple: '#d81890',
+        vibrantPurple: '#a818d8'
       }
     },
   },

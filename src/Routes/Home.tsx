@@ -10,13 +10,13 @@ const Home = () => {
     <>
         <HeaderPrimary />
 
-        <section className="bg-slate-300">
+        <section className="bg-black">
 
-          <section className="pt-8 mx-auto xl:w-3/4">
+          <section>
 
             <PromoProduct />
 
-            <div className="py-20">
+            <div className="py-20 bg-white">
               <CategorySelectors />
             </div>
 
