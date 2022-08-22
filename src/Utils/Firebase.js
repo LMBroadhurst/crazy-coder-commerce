@@ -68,16 +68,6 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
     console.log("Done");
 }
 
-export const getCategoriesAndDocuments = async () => {
-
-    const collectionRef = collection(db, 'categories');
-    const q = query(collectionRef);
-
-    const querySnapshot = await getDocs(q);
-
-    return querySnapshot.docs.map( docSnapshot => docSnapshot.data());
-}
-
 
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
 
@@ -85,11 +75,7 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 
     const userDocRef = doc(db, "users", userAuth.uid);
 
-    console.log(userDocRef);
-
     const userSnapshot = await getDoc(userDocRef);
-    console.log(userSnapshot);
-    console.log(userSnapshot.exists());
 
     if (!userSnapshot.exists()) {
         const { displayName, email } = userAuth;
@@ -133,3 +119,23 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 export const signOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
+
+
+// My Code
+
+
+export const getDocuments = async () => {
+
+    const querySnapshot = await getDocs(collection(db, 'products'));
+
+    const productArray = [];
+    
+    querySnapshot.docs.forEach((doc) => {
+        const data = doc.data();
+        productArray.push(data);
+    });
+
+    console.log(productArray);
+
+    return productArray;
+}
