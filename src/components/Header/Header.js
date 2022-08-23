@@ -39,7 +39,6 @@ const HeaderPrimary = () => {
   useEffect( () => {
   
     if (currentUser) {
-      console.log(currentUser);
       return setAccountRedirect("account");
     } else {
       console.log(currentUser);
@@ -76,10 +75,10 @@ const HeaderPrimary = () => {
 
           <nav className="hidden text-2xl lg:flex">
               <ul className="flex flex-row px-2">
-                  <li className="px-2 cursor-pointer hover:text-glowGreen"><Link to="/shop">Desktops</Link></li>
-                  <li className="px-2 cursor-pointer hover:text-glowGreen">Laptops</li>
-                  <li className="px-2 cursor-pointer hover:text-glowGreen">Accessories</li>
-                  <li className="px-2 cursor-pointer hover:text-glowGreen">Courses</li>
+                  <li className="px-2 cursor-pointer hover:text-glowGreen"><Link to="/desktops">Desktops</Link></li>
+                  <li className="px-2 cursor-pointer hover:text-glowGreen"><Link to="/laptops">Laptops</Link></li>
+                  <li className="px-2 cursor-pointer hover:text-glowGreen"><Link to="/accessories">Accessories</Link></li>
+                  <li className="px-2 cursor-pointer hover:text-glowGreen"><Link to="/courses">Courses</Link></li>
                   <li className="px-2 cursor-pointer hover:text-glowGreen">Contact Us</li>
               </ul>
           </nav>

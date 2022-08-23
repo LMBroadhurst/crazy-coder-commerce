@@ -5,7 +5,7 @@ import { addItemToCart } from '../../store/cart/cartAction';
 
 const ProductCard = ( {product} ) => {
 
-  const { name, price, imageUrl } = product;
+  const { name, price, imageUrl, category } = product;
 
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
@@ -23,7 +23,7 @@ const ProductCard = ( {product} ) => {
         <div className='px-5 flex flex-col items-stretch bg-slate-700 text-white py-4 pb-6 rounded-b-md'>
 
           <div className='w-11/12 my-3 mx-auto self-center flex justify-center'>
-            <img src={imageUrl} alt={name} className=""/>
+            <img src={imageUrl} alt="" className=""/>
           </div>
 
           <ul className='py-1 px-4 flex flex-col items-center'>
@@ -33,7 +33,7 @@ const ProductCard = ( {product} ) => {
           </ul>
 
           <div className='py-2 px-4 flex flex-col items-center'>
-            <span className='py-0.5'>Category</span>
+            <span className='py-0.5'>{category}</span>
             <span className='py-0.5'>£{price}</span>
           </div>
 

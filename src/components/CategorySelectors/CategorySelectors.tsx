@@ -11,7 +11,7 @@ const CategorySelectors = () => {
 
         <h3 className='text-center pb-16 text-4xl'>Shop by category</h3>
 
-        <section className='flex flex-wrap justify-around content-center items-center w-7/12 mx-auto'>
+        <section className='flex flex-wrap justify-around content-center items-center w-7/12 mx-auto duration-300'>
 
           <CategoryTile categoryName="Desktops" imageFile={Desktop}/>
 

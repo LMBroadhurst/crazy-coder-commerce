@@ -2,9 +2,12 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import './App.styles.css';
 import Home from './Routes/Home';
 import Authentication from "./Routes/Authentication";
-import Shop from './Routes/Shop.jsx';
 import Account from './Routes/Account.jsx';
 import Checkout from './Routes/Checkout';
+import Desktops from './Routes/Desktops';
+import Laptops from './Routes/Laptops';
+import Accessories from './Routes/Accessories';
+import Courses from './Routes/Courses';
 
 
 const App = () => {
@@ -17,8 +20,11 @@ const App = () => {
           
           <Route path='/' element={<Home />} />
           <Route path='/auth' element={<Authentication />} />
-          <Route path='/shop' element={<Shop />} />
-          <Route path='/account' element={<Account />} />
+          <Route path='/desktops' element={<Desktops />} />
+          <Route path='/laptops' element={<Laptops />} />
+          <Route path='/accessories' element={<Accessories />} />
+          <Route path='/laptops' element={<Laptops />} />
+          <Route path='/courses' element={<Courses />} />
           <Route path='/checkout' element={<Checkout />} />
 
         </Routes>
