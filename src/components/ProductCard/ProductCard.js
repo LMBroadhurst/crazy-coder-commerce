@@ -2,6 +2,8 @@ import ButtonA from '../Button/ButtonA';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectCartItems } from '../../store/cart/cartSelector';
 import { addItemToCart } from '../../store/cart/cartAction';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowCircleRight, faArrowRight, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 
 const ProductCard = ( {product} ) => {
 
@@ -14,29 +16,25 @@ const ProductCard = ( {product} ) => {
 
   return (
     <>
-      <section className='bg-slate-300 my-5 flex flex-col justify-between items-stretch rounded-lg md:m-5'>
+      <section className='flex flex-col'>
 
-        <div className='bg-black text-white text-4xl text-center py-2 rounded-t-lg'>
-          <h2>{name}</h2>
-        </div>
-
-        <div className='px-5 flex flex-col items-stretch bg-slate-700 text-white py-4 pb-6 rounded-b-md'>
+        <h2 className='bg-black text-white text-3xl text-center py-4'>{name}</h2>
+      
+        <div className='px-5 flex flex-col items-stretch bg-slate-700 text-white py-2 pb-4'>
 
           <div className='w-11/12 my-3 mx-auto self-center flex justify-center'>
             <img src={imageUrl} alt="" className=""/>
           </div>
 
-          <ul className='py-1 px-4 flex flex-col items-center'>
-            <li className='py-0.5'>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
-            <li className='py-0.5'>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
-            <li className='py-0.5'>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
-          </ul>
-
-          <div className='py-2 px-4 flex flex-col items-center'>
-            <span className='py-0.5'>{category}</span>
-            <span className='py-0.5'>£{price}</span>
+          <div className='py-2 pl-2 self-start'>
+            <span className='py-0.5'>From <span className='text-vLightBlue text-3xl px-1'>£{price}</span> including delivery</span>
           </div>
 
+          <ul className='py-2 pl-4 flex flex-col'>
+            <li className='py-1'><FontAwesomeIcon icon={faChevronCircleRight} className={"pr-2"}/>Lorem ipsum dolor, sit amet consectetur.</li>
+            <li className='py-1'><FontAwesomeIcon icon={faChevronCircleRight} className={"pr-2"}/>Lorem ipsum dolor, sit amet consectetur.</li>
+            <li className='py-1'><FontAwesomeIcon icon={faChevronCircleRight} className={"pr-2"}/>Lorem ipsum dolor, sit amet consectetur.</li>
+          </ul>
 
           <ButtonA 
             type='button'

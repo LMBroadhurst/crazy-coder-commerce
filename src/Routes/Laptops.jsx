@@ -36,9 +36,39 @@ const Laptops = () => {
         <>
 
             <HeaderPrimary />
-            <section className="py-3 bg-slate-300">
+            <section className="p-3 bg-slate-300 w-2/3 mx-auto">
 
-                <div className="w-10/12 mx-auto grid md:grid-cols-2 xl:grid-cols-3 y">
+                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+
+                {!products ? <span>Loading...</span> : 
+                    (
+                        Object.keys(products).filter( (title) => {
+                            const product = products[title];
+                            return product.category === "Laptop"
+                        }).map((title) => {
+                            const product = products[title];
+
+                            return (
+                                <ProductCard product={product} />
+                            );
+                        }) 
+                    )
+                }
+
+                {!products ? <span>Loading...</span> : 
+                    (
+                        Object.keys(products).filter( (title) => {
+                            const product = products[title];
+                            return product.category === "Laptop"
+                        }).map((title) => {
+                            const product = products[title];
+
+                            return (
+                                <ProductCard product={product} />
+                            );
+                        }) 
+                    )
+                }
 
                 {!products ? <span>Loading...</span> : 
                     (
