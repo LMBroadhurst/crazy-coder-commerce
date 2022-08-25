@@ -11,32 +11,19 @@ const Laptops = () => {
 
     const getProducts = async () => {
         const response = await getDocuments();
-        await setProducts(response);
-        listProducts();
+        setProducts(response);
     }
 
     useEffect(() => {
         getProducts();
     }, []);
-
-    const listProducts = () => {
-
-        products.forEach( (product, index) => {
-            return (
-                <div className="h-6">
-                    {index}
-                </div>
-            )
-        });
-
-    }
     
     
     return (
         <>
 
             <HeaderPrimary />
-            <section className="p-3 bg-slate-300 w-2/3 mx-auto">
+            <section className="p-3 bg-slate-300 sm:w-3/4 mx-auto lg:w-2/3">
 
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
 

@@ -135,7 +135,5 @@ export const getDocuments = async () => {
         productArray.push(data);
     });
 
-    console.log(productArray);
-
     return productArray;
 }

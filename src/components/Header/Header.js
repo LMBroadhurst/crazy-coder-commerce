@@ -68,7 +68,7 @@ const HeaderPrimary = () => {
       <div className="flex flex-col mx-auto xl:w-3/4">
         <div className='flex flex-row justify-between items-center p-3 lg:py-7'>
 
-          <h1 className='text-xl cursor-pointer hover:text-glowGreen sm:text-3xl sm:w-auto lg:w-auto'><Link to="/">Crazy Coder Commerce</Link></h1>
+          <h1 className='text-xl cursor-pointer hover:text-glowGreen sm:text-3xl sm:w-auto lg:w-auto'><Link to="/">Coder Commerce</Link></h1>
           
           <span className="text-2xl sm:text-4xl lg:hidden" onClick={toggleDdMenu} ><FontAwesomeIcon icon={faBars} /></span>
 
