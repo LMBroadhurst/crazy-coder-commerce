@@ -3,6 +3,7 @@ import FooterPrimary from "../components/Footer/Footer";
 import { getDocuments } from "../Utils/Firebase";
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard/ProductCard";
+import ProductFilter from "../components/ProductFilter/ProductFilter";
 
 
 const Laptops = () => {
@@ -12,31 +13,49 @@ const Laptops = () => {
     const getProducts = async () => {
         const response = await getDocuments();
         setProducts(response);
+        return response;
     }
 
     useEffect(() => {
         getProducts();
     }, []);
+
+    // const productFilterName = async () => {
+    //     Object.keys(products).filter( (title) => {
+    //         const product = products[title];
+    //         return product.category === "Laptop"
+    //     }).map((title, index) => {
+    //         const product = products[title];
+
+    //         return (
+    //             <ProductCard key={index} product={product} />
+    //         );
+    //     })
+    // }
+    
     
     
     return (
         <>
 
             <HeaderPrimary />
+
+            <ProductFilter />
+
             <section className="p-3 bg-slate-300 sm:w-3/4 mx-auto lg:w-2/3">
 
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
 
-                {!products ? <span>Loading...</span> : 
+                {
                     (
                         Object.keys(products).filter( (title) => {
                             const product = products[title];
                             return product.category === "Laptop"
-                        }).map((title) => {
+                        }).map((title, index) => {
                             const product = products[title];
 
                             return (
-                                <ProductCard product={product} />
+                                <ProductCard key={index} product={product} />
                             );
                         }) 
                     )
