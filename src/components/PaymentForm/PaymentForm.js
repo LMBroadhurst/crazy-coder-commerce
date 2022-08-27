@@ -24,7 +24,7 @@ const PaymentForm = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ amount: 100 }),
+      body: JSON.stringify({ amount: 100 * cartTotal }),
     }).then((res) => {
       return res.json();
     });
