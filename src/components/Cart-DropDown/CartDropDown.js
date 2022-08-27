@@ -1,18 +1,19 @@
 import ButtonA from '../Button/ButtonA'
 import CartItem from '../CartItem/CartItem';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { selectCartItems } from '../../store/cart/cartSelector';
+import { useContext } from 'react';
+import { CartContext } from '../../contexts/Cart.context';
 
 
 const CartDropDown = ( ) => {
 
-  const cartItems = useSelector(selectCartItems);
+  const { cartItems } = useContext(CartContext);
   const navigate = useNavigate();
 
-  const navToCheckout = () => {
+  const goToCheckoutHandler = () => {
     navigate('/checkout');
-  }
+  };
+
 
   return (
     <>
@@ -29,7 +30,7 @@ const CartDropDown = ( ) => {
                 }
               </section>
 
-              <ButtonA type="button" buttonStyle="default" text="Go to Checkout" onClick={navToCheckout} />
+              <ButtonA type="button" buttonStyle="default" text="Go to Checkout" onClick={goToCheckoutHandler} />
 
             </div>
 

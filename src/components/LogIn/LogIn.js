@@ -1,11 +1,9 @@
-import { signInWithGooglePopup, createUserDocumentFromAuth, signInAuthUserWithEmailAndPassword } from "../../Utils/Firebase";
+import { signInWithGooglePopup,  signInAuthUserWithEmailAndPassword } from "../../Utils/Firebase";
 import ButtonA from "../Button/ButtonA";
 import FormInput from "../FormInput/FormInput";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthModal from "../AuthModal/AuthModal";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 
 const defaultFormFields = {

@@ -1,18 +1,15 @@
 import ButtonA from '../Button/ButtonA';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectCartItems } from '../../store/cart/cartSelector';
-import { addItemToCart } from '../../store/cart/cartAction';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleRight, faArrowRight, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
+import { useContext } from 'react';
+import { CartContext } from '../../contexts/Cart.context';
 
 const ProductCard = ( {product} ) => {
 
-  const { name, price, imageUrl, category } = product;
+  const { name, price, imageUrl } = product;
+  const { addItemToCart } = useContext(CartContext);
 
-  const dispatch = useDispatch();
-  const cartItems = useSelector(selectCartItems);
-
-  const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
+  const addProductToCart = () => addItemToCart(product);
 
   return (
     <>

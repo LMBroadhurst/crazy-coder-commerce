@@ -1,51 +1,22 @@
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
-import { signOutUser } from "../../Utils/Firebase";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import CartDropDown from "../Cart-DropDown/CartDropDown";
-import { useSelector, useDispatch } from "react-redux";
-import { selectCurrentUser } from "../../store/user/userSelector";
-import { selectCartCount, selectIsCartOpen } from "../../store/cart/cartSelector";
-import { setIsCartOpen } from "../../store/cart/cartAction";
+import { CartContext } from "../../contexts/Cart.context";
+import { UserContext } from "../../contexts/User.context";
+import { signOutUser } from "../../Utils/Firebase";
+
 
 
 const HeaderPrimary = () => {
 
-  const currentUser = useSelector(selectCurrentUser);
-  
-  const isCartOpen = useSelector(selectIsCartOpen);
-  const cartCount = useSelector(selectCartCount);
-  const dispatch = useDispatch();
-
-  const [accountRedirect, setAccountRedirect] = useState("");
-
-  const ddMenu = useRef();
-  const navigate = useNavigate()
-
-  const toggleDdMenu = (event) => {
-    event.preventDefault();
-  }
-
-  const toggleCartOpen = () => {
-
-    if (currentUser) {
-      dispatch(setIsCartOpen(!isCartOpen));
-    }
-
-  }
+  const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
+  const { currentUser } = useContext(UserContext);
 
 
-  useEffect( () => {
-  
-    if (currentUser) {
-      return setAccountRedirect("account");
-    } else {
-      console.log(currentUser);
-      return setAccountRedirect("auth")
-    }
+  const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
 
-  }, [currentUser]);
 
 
   return (
@@ -55,8 +26,9 @@ const HeaderPrimary = () => {
       <div className="p-1 bg-black1 text-s md:text-lg md:px-3 md:pt-2 lg:px-5">
         <section className="flex flex-row justify-end text-grey1 xl:mx-auto xl:w-3/4" >
 
-            <span className="px-2 cursor-pointer hover:text-glowGreen"><Link to={`/${accountRedirect}`}>Account</Link></span>
-            <span className="px-2 cursor-pointer hover:text-glowGreen" onClick={toggleCartOpen}>Basket { cartCount ? cartCount : ""}</span>
+            <span className="px-2 cursor-pointer hover:text-glowGreen"><Link to={`/account`}>Account</Link></span>
+            <span className="px-2 cursor-pointer hover:text-glowGreen" onClick={toggleIsCartOpen}>Basket { cartCount ? cartCount : ""}</span>
+
             {
               currentUser ? <span onClick={signOutUser} className="pl-2 lg:pr-2 hover:text-glowGreen"><Link to="/">Sign Out</Link></span>
                 : <span className="pl-2 lg:pr-2 hover:text-glowGreen"><Link to="/auth">Sign In</Link></span>
@@ -70,7 +42,7 @@ const HeaderPrimary = () => {
 
           <h1 className='text-xl cursor-pointer hover:text-glowGreen sm:text-3xl sm:w-auto lg:w-auto'><Link to="/">Coder Commerce</Link></h1>
           
-          <span className="text-2xl sm:text-4xl lg:hidden" onClick={toggleDdMenu} ><FontAwesomeIcon icon={faBars} /></span>
+          <span className="text-2xl sm:text-4xl lg:hidden" ><FontAwesomeIcon icon={faBars} /></span>
 
 
           <nav className="hidden text-2xl lg:flex">
@@ -87,7 +59,7 @@ const HeaderPrimary = () => {
 
       </div>
 
-      <section className="hidden py-2 border-t-2 mx-3 text-lg sm:text-2xl lg:hidden" useref={ddMenu}>
+      <section className="hidden py-2 border-t-2 mx-3 text-lg sm:text-2xl lg:hidden">
         <nav>
           <ul className="flex flex-col items-center">
             <li className="py-1"><Link to="/shop">Desktops</Link></li>
