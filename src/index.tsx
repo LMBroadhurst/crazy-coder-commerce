@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import App from "./Application.jsx";
+import { UserProvider } from './contexts/User.context';
+import { CartProvider } from './contexts/Cart.context';
 // import { Provider } from 'react-redux';
 // import { store, persistor } from './store/store';
 // import { PersistGate } from 'redux-persist/integration/react';
@@ -12,9 +14,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-
-        <App />
-
+    <UserProvider>
+          <CartProvider>
+            <App />
+          </CartProvider>
+      </UserProvider>
   </React.StrictMode>
 );
 

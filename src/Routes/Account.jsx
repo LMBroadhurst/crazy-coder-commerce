@@ -3,7 +3,6 @@ import FooterPrimary from "../components/Footer/Footer";
 import FormInput from "../components/FormInput/FormInput";
 import HeaderPrimary from "../components/Header/Header";
 import { useState } from "react";
-import ProductFilter from "../components/ProductFilter/ProductFilter";
 
 
 const Account = () => {

@@ -3,7 +3,6 @@ const CartItem = ( {cartItem} ) => {
 
     const {name, quantity, imageUrl, price} = cartItem;
 
-
   return (
     <>
       <section className="flex flex-row p-2 items-center">

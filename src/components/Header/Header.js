@@ -14,9 +14,7 @@ const HeaderPrimary = () => {
   const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
   const { currentUser } = useContext(UserContext);
 
-
   const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
-
 
 
   return (
