@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import CheckoutCard from '../components/CheckoutItemCard/CheckoutItemCard';
 import FooterPrimary from '../components/Footer/Footer';
 import HeaderPrimary from '../components/Header/Header';
+import PaymentForm from '../components/PaymentForm/PaymentForm';
 import { CartContext } from '../contexts/Cart.context';
 
 
@@ -31,6 +32,8 @@ const Checkout = () => {
             <span className='my-3 text-2xl'>Total: £{cartTotal}</span>
 
         </section>
+
+        <PaymentForm />
         <FooterPrimary />
     </>
   )
