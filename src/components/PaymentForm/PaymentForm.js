@@ -1,5 +1,5 @@
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../contexts/Cart.context';
 import { UserContext } from '../../contexts/User.context';
 import ButtonA from '../Button/ButtonA';
@@ -11,6 +11,10 @@ const PaymentForm = () => {
   const { cartTotal } = useContext(CartContext)
   const { currentUser } = useContext(UserContext)
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+
+  useEffect( () => {
+    console.log(cartTotal)
+  }, [cartTotal])
 
   const paymentHandler = async (e) => {
     e.preventDefault();
