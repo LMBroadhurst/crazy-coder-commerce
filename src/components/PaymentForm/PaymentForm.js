@@ -8,7 +8,7 @@ const PaymentForm = () => {
 
   const stripe = useStripe();
   const elements = useElements();
-  const { amount } = useContext(CartContext)
+  const { cartTotal } = useContext(CartContext)
   const { currentUser } = useContext(UserContext)
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
@@ -24,7 +24,7 @@ const PaymentForm = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ amount: 10000 }),
+      body: JSON.stringify({ amount: 100 }),
     }).then((res) => {
       return res.json();
     });
@@ -35,7 +35,7 @@ const PaymentForm = () => {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: currentUser ? currentUser.displayName : 'Yihua Zhang',
+          name: currentUser ? currentUser.displayName : 'Lewis Broadhurst',
         },
       },
     });
