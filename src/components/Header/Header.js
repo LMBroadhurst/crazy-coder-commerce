@@ -77,9 +77,9 @@ const HeaderPrimary = () => {
               <ul className="flex flex-row px-2">
                   <li className="px-2 cursor-pointer hover:text-glowGreen"><Link to="/desktops">Desktops</Link></li>
                   <li className="px-2 cursor-pointer hover:text-glowGreen"><Link to="/laptops">Laptops</Link></li>
-                  <li className="px-2 cursor-pointer hover:text-glowGreen"><Link to="/accessories">Accessories</Link></li>
-                  <li className="px-2 cursor-pointer hover:text-glowGreen"><Link to="/courses">Courses</Link></li>
-                  <li className="px-2 cursor-pointer hover:text-glowGreen">Contact Us</li>
+                  <li className="px-2 cursor-not-allowed hover:text-glowGreen">Accessories</li>
+                  <li className="px-2 cursor-not-allowed hover:text-glowGreen">Courses</li>
+                  <li className="px-2 cursor-not-allowed hover:text-glowGreen">Contact Us</li>
               </ul>
           </nav>
 

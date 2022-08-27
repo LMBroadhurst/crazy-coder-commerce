@@ -3,42 +3,64 @@ import FooterPrimary from "../components/Footer/Footer";
 import { getDocuments } from "../Utils/Firebase";
 import { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard/ProductCard";
+import ProductFilter from "../components/ProductFilter/ProductFilter";
 
 
-const Desktops = () => {
+const Laptops = () => {
 
     const [products, setProducts] = useState([]);
 
     const getProducts = async () => {
         const response = await getDocuments();
-        await setProducts(response);
-        listProducts();
+        setProducts(response);
+        return response;
     }
 
     useEffect(() => {
         getProducts();
     }, []);
 
-    const listProducts = () => {
-
-        products.forEach( (product, index) => {
-            return (
-                <div className="h-6">
-                    {index}
-                </div>
-            )
-        });
-
-    }
-    
     
     return (
         <>
 
             <HeaderPrimary />
-            <section className="py-3 bg-slate-300">
 
-                <div className="w-10/12 mx-auto grid md:grid-cols-2 xl:grid-cols-3 y">
+            <ProductFilter />
+
+            <section className="p-3 bg-slate-300 sm:w-3/4 mx-auto lg:w-2/3">
+
+                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+
+                {
+                    (
+                        Object.keys(products).filter( (title) => {
+                            const product = products[title];
+                            return product.category === "Desktop"
+                        }).map((title, index) => {
+                            const product = products[title];
+
+                            return (
+                                <ProductCard key={index} product={product} />
+                            );
+                        }) 
+                    )
+                }
+
+                {!products ? <span>Loading...</span> : 
+                    (
+                        Object.keys(products).filter( (title) => {
+                            const product = products[title];
+                            return product.category === "Desktop"
+                        }).map((title) => {
+                            const product = products[title];
+
+                            return (
+                                <ProductCard product={product} />
+                            );
+                        }) 
+                    )
+                }
 
                 {!products ? <span>Loading...</span> : 
                     (
@@ -63,4 +85,4 @@ const Desktops = () => {
     )
 }
 
-export default Desktops;
+export default Laptops;

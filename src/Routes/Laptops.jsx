@@ -20,20 +20,6 @@ const Laptops = () => {
         getProducts();
     }, []);
 
-    // const productFilterName = async () => {
-    //     Object.keys(products).filter( (title) => {
-    //         const product = products[title];
-    //         return product.category === "Laptop"
-    //     }).map((title, index) => {
-    //         const product = products[title];
-
-    //         return (
-    //             <ProductCard key={index} product={product} />
-    //         );
-    //     })
-    // }
-    
-    
     
     return (
         <>

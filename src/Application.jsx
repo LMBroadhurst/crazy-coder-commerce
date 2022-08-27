@@ -6,8 +6,6 @@ import Account from './Routes/Account.jsx';
 import Checkout from './Routes/Checkout';
 import Desktops from './Routes/Desktops';
 import Laptops from './Routes/Laptops';
-import Accessories from './Routes/Accessories';
-import Courses from './Routes/Courses';
 
 
 const App = () => {
@@ -23,9 +21,7 @@ const App = () => {
           <Route path='/account' element={<Account />} />
           <Route path='/desktops' element={<Desktops />} />
           <Route path='/laptops' element={<Laptops />} />
-          <Route path='/accessories' element={<Accessories />} />
           <Route path='/laptops' element={<Laptops />} />
-          <Route path='/courses' element={<Courses />} />
           <Route path='/checkout' element={<Checkout />} />
 
         </Routes>

@@ -16,7 +16,8 @@ const Home = () => {
 
             <PromoProduct />
 
-            <div className="py-20 bg-white">
+
+            <div className="py-10 lg:py-20 bg-white">
               <CategorySelectors />
             </div>
 

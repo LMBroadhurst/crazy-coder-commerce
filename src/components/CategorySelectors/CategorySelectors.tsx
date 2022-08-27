@@ -3,19 +3,24 @@ import Desktop from "../../Assets/desktopCatTile1.png";
 import Laptop from "../../Assets/laptopCatTile1.png";
 import Microphone from "../../Assets/micCatTile1.png";
 import Course from "../../Assets/course.png";
+import { Link } from 'react-router-dom';
 
 const CategorySelectors = () => {
   return (
     <>
       <section>
 
-        <h3 className='text-center pb-16 text-4xl'>Shop by category</h3>
+        <h3 className='text-center text-4xl pb-8 lg:pb-16'>Shop by category</h3>
 
-        <section className='flex flex-wrap justify-around content-center items-center w-7/12 mx-auto duration-300'>
+        <section className='grid grid-cols-2 columns-auto w-2/3 mx-auto duration-300 sm:grid-cols-4 sm:w-11/12 md:w-5/6 lg:w-7/12'>
 
-          <CategoryTile categoryName="Desktops" imageFile={Desktop}/>
+          <Link to={"/desktops"}>
+            <CategoryTile categoryName="Desktops" imageFile={Desktop}/>
+          </Link>
 
-          <CategoryTile categoryName="Laptops" imageFile={Laptop} />
+          <Link to={"/laptops"}>
+            <CategoryTile categoryName="Laptops" imageFile={Laptop} />
+          </Link>
 
           <CategoryTile categoryName="Accessories" imageFile={Microphone} />
 
