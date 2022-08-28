@@ -5,6 +5,7 @@ import { createAction } from "../Utils/reducer";
 export const UserContext = createContext({
   setCurrentUser: () => null,
   currentUser: null,
+  orders: [],
 });
 
 export const USER_ACTION_TYPES = {

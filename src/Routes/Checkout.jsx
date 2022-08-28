@@ -14,26 +14,27 @@ const Checkout = () => {
     <>
         <HeaderPrimary />
 
-        <section className='md:w-2/3 xl:w-1/2 px-5 mx-auto bg-slate-300 flex flex-col'>
+        <section className='md:w-2/3 xl:w-1/2 px-5 mx-auto bg-black text-white flex flex-col'>
 
-            <h2 className='self-center text-slate-800 text-4xl my-5 pb-2 border-black border-b-2'>Checkout</h2>
+            <h2 className='self-center text-4xl my-7 border-black border-b-2'>Checkout</h2>
 
-            <section>
+            <section className='flex flex-col'>
                 {
-                    cartItems.map( (cartItem) => {
+                    cartItems.length ? cartItems.map( (cartItem) => {
                         
                         return (
                             <CheckoutCard cartItem={cartItem} />
                         )
-                    })
+                    }) : <span className='text-xl py-20 self-center'>Head to the store and add items to your basket :)</span>
                 }
             </section>
 
-            <span className='my-3 text-2xl'>Total: £{cartTotal}</span>
+            <span className='my-3 text-4xl pb-5 border-b-4 border-glowGreen text-center'>Total: £{cartTotal}</span>
+
+            <PaymentForm />
 
         </section>
 
-        <PaymentForm />
         <FooterPrimary />
     </>
   )

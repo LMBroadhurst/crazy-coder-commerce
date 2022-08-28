@@ -8,9 +8,11 @@ const PaymentForm = () => {
 
   const stripe = useStripe();
   const elements = useElements();
-  const { cartTotal } = useContext(CartContext)
+  const { cartTotal, cartItems } = useContext(CartContext)
   const { currentUser } = useContext(UserContext)
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
+
+  console.log(cartItems)
 
   const paymentHandler = async (e) => {
     e.preventDefault();
@@ -53,11 +55,22 @@ const PaymentForm = () => {
 
   return (
     <>
-        <section>
-            <form onSubmit={paymentHandler}>
-                <CardElement />
-                <ButtonA text={"Pay Now"} type={"submit"} buttonStyle={"google"} />
-            </form>
+        <section className='flex flex-col items-stretch my-5 bg-slate-600 text-black'>
+
+          <h3 className='self-center text-3xl py-7 text-white'>Pay below</h3>
+
+          <form onSubmit={paymentHandler} className="flex flex-col items-stretch justify-center">
+
+            <div className='w-11/12 px-2 mx-auto py-4 mb-5 sm:w-2/3 bg-white'>
+              <CardElement />
+            </div>
+
+            <div className='flex justify-center w-1/2 mx-auto mb-5'>
+              <ButtonA text={"Pay Now"} type={"submit"} buttonStyle={"google"} />
+            </div>
+
+          </form>
+
         </section>
     </>
   )
