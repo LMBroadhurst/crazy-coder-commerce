@@ -7,7 +7,7 @@ export const UserContext = createContext({
   currentUser: null,
   orders: [],
   setOrders: () => {},
-  addOrderToUser: () => {}
+  addOrder: () => {}
 });
 
 export const USER_ACTION_TYPES = {
@@ -16,7 +16,8 @@ export const USER_ACTION_TYPES = {
 
 const addOrderToUser = (orders, orderDetails) => {
 
-  console.log(orderDetails)
+  console.log(orderDetails);
+
   return orders.push(orderDetails);
 }
 
@@ -45,6 +46,7 @@ export const UserProvider = ({ children }) => {
 
   const addOrder = (orderToAdd) => {
     setOrders(addOrderToUser(orders, orderToAdd))
+    console.log(orders);
   }
 
   const setCurrentUser = (user) => {
