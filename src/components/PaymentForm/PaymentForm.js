@@ -8,11 +8,10 @@ const PaymentForm = () => {
 
   const stripe = useStripe();
   const elements = useElements();
-  const { cartTotal, cartItems } = useContext(CartContext)
-  const { currentUser } = useContext(UserContext)
+  const { cartTotal, cartItems } = useContext(CartContext);
+  const { currentUser, orders, addOrderToUser } = useContext(UserContext);
   const [isProcessingPayment, setIsProcessingPayment] = useState(false);
-
-  console.log(cartItems)
+  
 
   const paymentHandler = async (e) => {
     e.preventDefault();
@@ -49,6 +48,10 @@ const PaymentForm = () => {
     } else {
       if (paymentResult.paymentIntent.status === 'succeeded') {
         alert('Payment Successful!');
+        addOrderToUser(orders, {
+          orderTotal: cartTotal,
+          orderProducts: cartItems,
+        })
       }
     }
   };
