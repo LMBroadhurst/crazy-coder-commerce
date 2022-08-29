@@ -61,21 +61,6 @@ const Account = () => {
 
                     <div className="flex flex-col">
                         <p className="self-center my-10 text-2xl">You have no previous orders.</p>
-
-                        {
-                            orders.map((order) => {
-                                return (
-                                    <>
-                                        <span>{order.orderTotal}</span>
-                                        <div>
-                                            {order.orderProducts.map((order) => {
-                                                return <span>{order.quantity}</span>
-                                            })}
-                                        </div>
-                                    </>
-                                )
-                            })
-                        }
                     </div>
 
                 </section>
