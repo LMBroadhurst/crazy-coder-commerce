@@ -43,7 +43,7 @@ const INITIAL_STATE = {
 export const UserProvider = ({ children }) => {
 
   const [ { currentUser }, dispatch ] = useReducer(userReducer, INITIAL_STATE);
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useState([{}]);
 
   const addOrder = (orderToAdd) => {
     setOrders(addOrderToUser(orders, orderToAdd))
