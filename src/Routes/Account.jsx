@@ -10,7 +10,7 @@ import BlankUserImage from "../Assets/blank-profile-picture-g2b073d38f_1280.png"
 const Account = () => {
 
     const [toggleEditDetails, setToggleEditDetails] = useState("hidden");
-    const { currentUser } = useContext(UserContext)
+    const { currentUser, orders } = useContext(UserContext)
     const { email, displayName, photoUrl } = currentUser;
 
     const toggleEditDetailsMenu = (event) => {
@@ -61,6 +61,21 @@ const Account = () => {
 
                     <div className="flex flex-col">
                         <p className="self-center my-10 text-2xl">You have no previous orders.</p>
+
+                        {
+                            orders.map((order) => {
+                                return (
+                                    <>
+                                        <span>{order.orderTotal}</span>
+                                        <div>
+                                            {order.orderProducts.map((order) => {
+                                                return <span>{order.quantity}</span>
+                                            })}
+                                        </div>
+                                    </>
+                                )
+                            })
+                        }
                     </div>
 
                 </section>
