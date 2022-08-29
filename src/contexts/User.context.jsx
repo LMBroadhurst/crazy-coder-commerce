@@ -17,8 +17,9 @@ export const USER_ACTION_TYPES = {
 const addOrderToUser = (orders, orderDetails) => {
 
   console.log(orderDetails);
+  orders.push(orderDetails);
 
-  return orders.push(orderDetails);
+  return orders;
 }
 
 const userReducer = (state, action) => {
