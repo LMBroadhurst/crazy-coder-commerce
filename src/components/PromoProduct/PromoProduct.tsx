@@ -24,7 +24,7 @@ const PromoProduct = (): JSX.Element => {
                 </div>
                 
 
-                <div className="flex flex-col items-center px-6 md:w-2/5">
+                <div className="flex flex-col items-center justify-center px-6 md:w-2/5">
                   <h2 className="text-lg sm:text-2xl border-b-2 pb-1 mb-1 md:self-start">INTEL Z390 TOWER</h2>
 
                   <p className="my-1 text-md self-start sm:text-xl">Custom Gaming Computer with latest gen Intel Core processors.</p>
@@ -35,7 +35,7 @@ const PromoProduct = (): JSX.Element => {
                  
                 </div>
 
-                <div className="transition-all duration-500 bg-grey1 bg-opacity-20 h-10 w-10 flex-shrink-0 flex items-center justify-center rounded-full hover:bg-glowGreen hover:cursor-pointer hover:translate-x-2">
+                <div className="transition-all duration-500 bg-grey1 bg-opacity-20 h-10 w-10 flex items-center justify-center rounded-full hover:bg-glowGreen hover:cursor-pointer hover:-translate-x-2 flex-shrink-0">
                   <span className="text-white"><FontAwesomeIcon icon={faArrowRight} /></span>
                 </div>
 

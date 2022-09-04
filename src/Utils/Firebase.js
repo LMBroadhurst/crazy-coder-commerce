@@ -12,6 +12,7 @@ import {
     signInWithEmailAndPassword, 
     signOut,
     onAuthStateChanged,
+    GithubAuthProvider,
  } from "firebase/auth";
 
 import {
@@ -53,6 +54,19 @@ googleProvider.setCustomParameters( {
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider);
 export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
 export const db = getFirestore();
+
+
+// GitHub provider
+
+const githubProvider = new GithubAuthProvider();
+
+githubProvider.setCustomParameters( {
+    prompt: "select_account"
+});
+
+export const signInWithGitHubPopup = () => signInWithPopup(auth, githubProvider);
+
+// Documents
 
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
     const collectionRef = collection(db, collectionKey);
@@ -136,3 +150,5 @@ export const getDocuments = async () => {
 
     return productArray;
 }
+
+

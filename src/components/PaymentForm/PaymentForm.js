@@ -1,3 +1,5 @@
+import { faStripe } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useContext, useState } from 'react';
 import { CartContext } from '../../contexts/Cart.context';
@@ -61,7 +63,7 @@ const PaymentForm = () => {
     <>
         <section className='flex flex-col items-stretch my-5 bg-slate-600 text-black'>
 
-          <h3 className='self-center text-3xl py-7 text-white'>Pay below</h3>
+          <h3 className='self-center text-3xl py-7 text-white'>Pay below with Stripe</h3>
 
           <form onSubmit={paymentHandler} className="flex flex-col items-stretch justify-center">
 

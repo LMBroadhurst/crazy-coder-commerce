@@ -7,8 +7,9 @@ import { CartContext } from '../../contexts/Cart.context';
 
 const CartDropDown = ( ) => {
 
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, isCartOpen, setIsCartOpen } = useContext(CartContext);
   const navigate = useNavigate();
+  const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
 
   const goToCheckoutHandler = () => {
     navigate('/checkout');
@@ -17,7 +18,7 @@ const CartDropDown = ( ) => {
 
   return (
     <>
-        <section className={`absolute z-10 bg-white h-auto w-64 p-2 border-4 rounded-md`}>
+        <section className={`absolute z-10 bg-white h-auto w-64 p-2 border-4 rounded-md`} onMouseLeave={toggleIsCartOpen}>
 
             <div className='flex flex-col items-stretch'>
 

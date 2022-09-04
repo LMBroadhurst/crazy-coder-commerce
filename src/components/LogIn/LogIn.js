@@ -1,4 +1,4 @@
-import { signInWithGooglePopup,  signInAuthUserWithEmailAndPassword } from "../../Utils/Firebase";
+import { signInWithGooglePopup,  signInAuthUserWithEmailAndPassword, signInWithGitHubPopup } from "../../Utils/Firebase";
 import ButtonA from "../Button/ButtonA";
 import FormInput from "../FormInput/FormInput";
 import { useState } from "react";
@@ -63,6 +63,11 @@ const LogIn = () => {
         await signInWithGooglePopup();
         navigate("/account")
     };
+
+    const signInWithGithub = async () => {
+        await signInWithGitHubPopup();
+        navigate("/account")
+    }
 
 
     const togglePasswordShowing = (event) => {
@@ -133,6 +138,7 @@ const LogIn = () => {
                 type="button"
                 buttonStyle="default"
                 text={`Sign in with GitHub`}
+                onClick={signInWithGithub}
             />
         </div>
 

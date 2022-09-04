@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import CartDropDown from "../Cart-DropDown/CartDropDown";
@@ -13,8 +13,41 @@ const HeaderPrimary = () => {
 
   const { isCartOpen, setIsCartOpen, cartCount } = useContext(CartContext);
   const { currentUser } = useContext(UserContext);
+  const [menuToggle, setMenuToggle] = useState("hidden");
+  const navigate = useNavigate();
+  
 
   const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
+
+  const toggleDD = (event) => {
+    event.preventDefault();
+
+    if (menuToggle === "hidden") {
+      return setMenuToggle("");
+    }
+
+    return setMenuToggle("hidden");
+  }
+
+  const accountRedirect = (event) => {
+    event.preventDefault();
+
+    if (currentUser) {
+      return navigate("/account");
+    } 
+
+    return navigate("/auth")
+  }
+
+  const basketRedirect = (event) => {
+    event.preventDefault();
+
+    if (currentUser) {
+      return toggleIsCartOpen();
+    } 
+
+    return navigate("/auth")
+  }
 
 
   return (
@@ -24,8 +57,8 @@ const HeaderPrimary = () => {
       <div className="p-1 bg-black1 text-s md:text-lg md:px-3 md:pt-2 lg:px-5">
         <section className="flex flex-row justify-end text-grey1 xl:mx-auto xl:w-3/4" >
 
-            <span className="px-2 cursor-pointer hover:text-glowGreen"><Link to={`/account`}>Account</Link></span>
-            <span className="px-2 cursor-pointer hover:text-glowGreen" onClick={toggleIsCartOpen}>Basket { cartCount ? cartCount : ""}</span>
+            <span className="px-2 cursor-pointer hover:text-glowGreen" onClick={accountRedirect}>Account</span>
+            <span className="px-2 cursor-pointer hover:text-glowGreen" onClick={basketRedirect} >Basket { cartCount ? cartCount : ""}</span>
 
             {
               currentUser ? <span onClick={signOutUser} className="pl-2 lg:pr-2 hover:text-glowGreen"><Link to="/">Sign Out</Link></span>
@@ -40,7 +73,7 @@ const HeaderPrimary = () => {
 
           <h1 className='text-xl cursor-pointer hover:text-glowGreen sm:text-3xl sm:w-auto lg:w-auto'><Link to="/">Coder Commerce</Link></h1>
           
-          <span className="text-2xl sm:text-4xl lg:hidden" ><FontAwesomeIcon icon={faBars} /></span>
+          <span className="text-2xl sm:text-4xl lg:hidden"><FontAwesomeIcon icon={faBars} onClick={toggleDD}/></span>
 
 
           <nav className="hidden text-2xl lg:flex">
@@ -57,10 +90,10 @@ const HeaderPrimary = () => {
 
       </div>
 
-      <section className="hidden py-2 border-t-2 mx-3 text-lg sm:text-2xl lg:hidden">
+      <section className={`${menuToggle} py-2 border-t-2 mx-3 text-lg sm:text-2xl lg:hidden`}>
         <nav>
           <ul className="flex flex-col items-center">
-            <li className="py-1"><Link to="/shop">Desktops</Link></li>
+            <li className="py-1"><Link to="/desktops">Desktops</Link></li>
             <li className="py-1"><Link to="/laptops">Laptops</Link></li>
             <li className="py-1">Accessories</li>
             <li className="py-1">Courses</li>
@@ -79,4 +112,4 @@ const HeaderPrimary = () => {
   )
 }
 
-export default HeaderPrimary
+export default HeaderPrimary;

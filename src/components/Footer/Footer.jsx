@@ -19,11 +19,11 @@ const FooterPrimary = () => {
                     <span className='pb-6'>Email: cccommerce@gmail.com</span>
                 </div>
 
-                <div className='flex flex-row justify-between self-center sm:justify-evenly sm:self-stretch md:flex-row'>
+                <div className='flex flex-row justify-between self-center text-md sm:text-xl sm:justify-evenly sm:self-stretch md:flex-row'>
 
                     <div className='mx-1 border-t-4 border-white'>
                         <nav className='px-2 lg:px-4'>
-                            <ul className='flex flex-col items-stretch pt-3 text-xl'>
+                            <ul className='flex flex-col items-stretch pt-3'>
                                 <li className='py-1 ggTextHoverState'>Desktops</li>
                                 <li className='py-1 ggTextHoverState'>Laptops</li>
                                 <li className='py-1 ggTextHoverState'>Accessories</li>
@@ -35,7 +35,7 @@ const FooterPrimary = () => {
 
                     <div className='border-t-4 border-white mx-1'>
                         <nav className='lg:px-4'>
-                            <ul className='flex flex-col items-stretch pt-3 text-xl'>
+                            <ul className='flex flex-col items-stretch pt-3'>
                                 <li className='py-1 ggTextHoverState'>Careers</li>
                                 <li className='py-1 ggTextHoverState'>Returns</li>
                                 <li className='py-1 ggTextHoverState'>Deliveries</li>
@@ -47,7 +47,7 @@ const FooterPrimary = () => {
 
                     <div className='border-t-4 border-white mx-1'>
                         <nav className='lg:px-4'>
-                            <ul className='flex flex-col items-stretch pt-3 text-xl'>
+                            <ul className='flex flex-col items-stretch pt-3'>
                                 <li className='py-1 ggTextHoverState'>Finance</li>
                                 <li className='py-1 ggTextHoverState'>Reviews</li>
                                 <li className='py-1 ggTextHoverState'>Privacy</li>
