@@ -59,6 +59,43 @@ const PaymentForm = () => {
     }
   };
 
+  const options = {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      'X-CC-Api-Key': 'aab1664d-af5d-4309-aaa8-2f3ee524f063',
+      "X-CC-Version": "2018-03-22" 
+  },
+  body: JSON.stringify({
+    local_price: {amount: 100, currency: 'USD'},
+    name: 'Charge name, 100 characters or less',
+    description: 'More detailed description, 200 characters or less',
+    pricing_type: 'fixed_price'
+  })
+};
+
+const payViaCoinbase = async () => {
+  await fetch('https://api.commerce.coinbase.com/charges', options)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .then(response => console.log(response.data.code))
+    .catch(err => console.error(err));
+
+  getCoinbaseCharge();
+};
+
+const options2 = {method: 'GET', headers: {Accept: 'application/json', 'X-CC-Api-Key': 'aab1664d-af5d-4309-aaa8-2f3ee524f063', "X-CC-Version": "2018-03-22"}};
+
+const getCoinbaseCharge = () => {
+  fetch('https://api.commerce.coinbase.com/charges/KX799GMM', options2)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
+}
+
+
+
   return (
     <>
         <section className='flex flex-col items-stretch my-5 bg-slate-600 text-black'>
@@ -72,12 +109,16 @@ const PaymentForm = () => {
             </div>
 
             <div className='flex justify-center w-1/2 mx-auto mb-5'>
-              <ButtonA text={"Pay Now"} type={"submit"} buttonStyle={"google"} />
+              <ButtonA text={"Pay Now"} type={"submit"} buttonStyle={"glowGreen"} />
             </div>
 
           </form>
 
         </section>
+
+        <div className='mx-auto my-5'>
+          <ButtonA text={"Pay with Coinbase"} type={"button"} buttonStyle={"google"} onClick={payViaCoinbase}/>
+        </div>
     </>
   )
 }
